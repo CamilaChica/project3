@@ -1,8 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {AppContainer} from 'react-hot-loader';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import {enableBatching} from 'redux-batched-actions';
+
+import reducer from './Reducers';
+import App from './Components/App/App'
+import GameBoard from './Components/GameBoard/GameBoard'
+
 import './index.css';
-import App from './App';
+import App from './Components/App/App';
 import * as serviceWorker from './serviceWorker';
+
+const store = createStore(enableBatching(reducer),
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
 
 const rootById = document.getElementById('root');
 
