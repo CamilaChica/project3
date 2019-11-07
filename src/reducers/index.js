@@ -3,13 +3,13 @@ import {combineReducers} from "redux";
 import houses from "./houses";
 import collection from "./collection";
 import autoCollect from "./collectionShow";
-import collectionRent from "./collectionRent";
+import inventory from "./inventory";
 import options from "./options";
 
 const rootReducer = combineReducers({
     houses,
     collection,
-    collectionRent,
+    inventory,
     autoCollect,
     options
 });
