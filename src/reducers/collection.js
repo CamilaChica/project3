@@ -1,11 +1,11 @@
 import {actionTypes, collection as collectionConstants} from "~/constants";
 
 export const instialState = {
-    list: [productConstants.FINANCES],
-    quantity: {[productConstants.FINANCES]: {qty: 0}}
+    list: [collectionConstants.FINANCES],
+    quantity: {[collectionConstants.FINANCES]: {qty: 0}}
 };
 
-const buyList = (state = initialState.list, action) =>{
+const moneyUsed = (state = initialState.list, action) =>{
     switch(action.type){
         case actionTypes.COLLECT_RENT:
         if(state.indexOf(action.name) !== -1){
@@ -36,3 +36,10 @@ const financeQuantity = (state = initialState.quantity, action) =>{
                return state;
         }
 };
+
+const finances = (state = initialState, action) => ({
+    list: moneyUsed(state.list, action),
+    quantity: financeQuantity(state.quantity, action),
+});
+
+export default finances;
