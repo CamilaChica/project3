@@ -3,7 +3,7 @@
 }
 
 .namePlayer{
-    background-image: url(../imagenes/back_name.png);
+    background-image: url(../images/back_name.png);
     background-size: cover;
     padding: 20px;
     text-align: center;
@@ -15,9 +15,10 @@
 }
 
 .coin{
-    background-image: url(../imagenes/back_coin.png);
+    background-image: url(../images/back_coin.png);
     background-size: cover;
-    height: 100%;
+	width: 100%;
+    height: 630px;
     text-align: center;
 }
 .coin img{margin-top: 20%;}
@@ -64,37 +65,37 @@
 }
 
 .item_plot{
-    background-image: url(../imagenes/back_plot.jpg);
+    background-image: url(../images/back_plot.jpg);
     background-position: bottom;
 }
 
 .item_house{
-    background-image: url(../imagenes/house.jpg);
+    background-image: url(../images/house.jpg);
     background-position: bottom;
 }
 
 .item_house2{
-    background-image: url(../imagenes/bk_house2.png);
+    background-image: url(../images/bk_house2.png);
     background-position: bottom;
 }
 
 .item_boogaloo{
-    background-image: url(../imagenes/house.jpg);
+    background-image: url(../images/house.jpg);
     background-position: bottom;
 }
 
 .item_condo{
-    background-image: url(../imagenes/back_condo.png);
+    background-image: url(../images/back_condo.png);
     background-position: bottom;
 }
 
 .item_building{
-    background-image: url(../imagenes/back_mansion.png);
+    background-image: url(../images/back_mansion.png);
     background-position: bottom;
 }
 
 .item_mansion{
-    background-image: url(../imagenes/back_mansion.png);
+    background-image: url(../images/back_mansion.png);
     background-position: bottom;
 }
 
@@ -178,7 +179,7 @@
 .item_house_cont {
     display: inline-flex;
     height: 110px;
-    background-image: url(../imagenes/back_name.png);
+    background-image: url(../images/back_name.png);
     width: 100%;
     align-items: center;
     background-size: cover;
