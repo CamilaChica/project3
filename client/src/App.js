@@ -47,6 +47,13 @@ class App extends Component{
                 mansionAmount: 151.875,                                
             }
          }
+    /*      moneyPerSecond
+            timer each 1000 cambia coin
+            plotQuantity= moneyPerSecond * 1.5
+            Per Second x coins 
+            */
+
+
 
          plotHandler() {
             this.setState((preState) => {
@@ -55,7 +62,8 @@ class App extends Component{
                     return {
                         currentMoney: preState.currentMoney - preState.plotAmount,
                         plotAmount : preState.plotAmount * 1.5,
-                        plotQuantity: preState.plotQuantity + 1
+                        plotQuantity: preState.plotQuantity + 1,
+                        propertyTotal: preState.propertyTotal +1
                         };
                 }
                 
