@@ -26,7 +26,7 @@ class App extends Component{
     constructor(props){
         super(props);
           this.moneyHandler = this.moneyHandler.bind(this);
-          this.plotHandler = this.plotHandler.bind(this);
+          this.callbackPlots = this.callbackPlots.bind(this);
           
             this.state = {
                 currentMoney : 0 ,
@@ -41,7 +41,7 @@ class App extends Component{
                 clickAmount: 1,
                 moneyPerSecond: 0,
 
-                plotAmount: 0,
+                plotAmount: 20,
                 plotQuantity: 0,
 
                 house1Amount: 0,
@@ -61,21 +61,16 @@ class App extends Component{
 
 
 
-         plotHandler() {
-            this.setState((preState) => {
+    callbackPlots = (amount, quantity, current, total) => {
+            this.setState({
+                plotAmount: amount,
+                plotQuantity: quantity,
+                currentMoney: current,
+                propertyTotal: total
+            })
 
-                if (preState.currentMoney >= preState.plotAmount){
-                    return {
-                        currentMoney: preState.currentMoney - preState.plotAmount,
-                        plotAmount : preState.plotAmount * 1.5,
-                        plotQuantity: preState.plotQuantity + 1,
-                        propertyTotal: preState.propertyTotal +1
-                        };
-                }
                 
-                
-               });
-          }
+      }
 
           getJSONProperties() {
             if(this.state.dataJSONLoaded === false){
@@ -158,7 +153,7 @@ class App extends Component{
         </div>
         <BuyAndSell></BuyAndSell>
         <div class="items_count">
-           <Plot action={this.plotHandler} moneyDisplay={this.state.plotAmount} quantity={this.state.plotQuantity}></Plot>
+           <Plot action={this.callbackPlots} plotAmount={this.state.plotAmount} plotQuantity={this.state.plotQuantity} currentMoney={this.state.currentMoney} propertyTotal={this.state.propertyTotal}></Plot>
            <House1></House1>
            <House2></House2>
            <Condo></Condo>
