@@ -1,5 +1,8 @@
 import React,{Component} from 'react';
 
+//functions
+import propertyData from "./actions/data.json"
+
 import PlayerStats from "./components/playerStats"
 import Options from "./components/options"
 import Items from "./components/items"
@@ -24,6 +27,7 @@ class App extends Component{
         super(props);
           this.moneyHandler = this.moneyHandler.bind(this);
           this.plotHandler = this.plotHandler.bind(this);
+          
             this.state = {
                 currentMoney : 0 ,
                 
@@ -37,14 +41,16 @@ class App extends Component{
                 clickAmount: 1,
                 moneyPerSecond: 0,
 
-                plotAmount: 20,
+                plotAmount: 0,
                 plotQuantity: 0,
 
-                house1Amount: 30,
-                house2Amount: 45,
-                condoAmount: 67.5,
-                buidingAmount: 101.25,
-                mansionAmount: 151.875,                                
+                house1Amount: 0,
+                house2Amount: 0,
+                condoAmount: 0,
+                buidingAmount: 0,
+                mansionAmount: 0,  
+                
+                dataJSONLoaded: false
             }
          }
     /*      moneyPerSecond
@@ -71,6 +77,52 @@ class App extends Component{
                });
           }
 
+          getJSONProperties() {
+            if(this.state.dataJSONLoaded === false){
+                let plotGetAmount;
+                let house1GetAmount;
+                let house2GetAmount;
+                let condoGetAmount;
+                let buildingGetAmount;
+                let mansionGetAmount;
+                propertyData.Properties.map((houseDetails)=>{  
+                        if (houseDetails.Name === "Plot"){
+                            plotGetAmount =houseDetails.Amount;
+                        }
+                        if (houseDetails.Name === "House1"){
+                            house1GetAmount =houseDetails.Amount;
+                        }
+                        if (houseDetails.Name === "House2"){
+                            house2GetAmount =houseDetails.Amount;
+                        }
+                        if (houseDetails.Name === "Condo"){
+                            condoGetAmount =houseDetails.Amount;
+                        }
+                        if (houseDetails.Name === "Building"){
+                            buildingGetAmount =houseDetails.Amount;
+                        }
+                        if (houseDetails.Name === "Mansion"){
+                            mansionGetAmount =houseDetails.Amount;
+                        }
+                });
+                this.setState(() => {
+                return{
+                    plotAmount: plotGetAmount,
+                    house1Amount: house1GetAmount,
+                    house2Amount: house2GetAmount,
+                    condoAmount: condoGetAmount,
+                    buildingAmount: buildingGetAmount,
+                    mansionAmount: mansionGetAmount,
+                    dataJSONLoaded: true
+                }
+            });
+            
+            }else{
+
+            }
+        }
+        
+
          moneyHandler() {
             this.setState((preState) => {
                 return {
@@ -87,9 +139,12 @@ class App extends Component{
                });
           }
     
-    
+  
+               
     render()
-{
+{   
+    this.getJSONProperties();
+    
     return <div class="row general">
         <PlayerStats action={this.moneyHandler} moneyDisplay={this.state.currentMoney}></PlayerStats>
         

@@ -1,18 +1,15 @@
 import React from 'react';
 
 
-
-
-const Coin=(props)=>{
-
-    return <div class="coin">
-
-        <img src="./images/dollar.png" alt=""/>
-
-    </div>
-
-}
+const moneyHandler = function(money) {
+    this.setState((preState) => {
+        return {
+          currentMoney : preState.money + 1
+          };
+       });
+    
+    }
 
 
 
-export default Coin;
+export default moneyHandler;
