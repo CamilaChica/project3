@@ -73,33 +73,31 @@ class Statistics extends Component {
                 })
           }
 
-
-
-         render()
-         {
-             return <div class="row general">
-              <MoneyCtrl giveCurrentMoney={this.state.currentMoney}></MoneyCtrl>
-                 
-             <div class="col-md-6 p-0">
-                 <Options></Options>
-                 <Items></Items>
-             </div>
-             <div class="col-md-3 p-0">
-                 <div class="row">
-                     <ItemPlus></ItemPlus>
-                 </div>
-                 <BuyAndSell></BuyAndSell>
-                 <div class="items_count">
-                    <PlotCtrl plotWorth={this.state.plotAmount}></PlotCtrl>
-                    <House1Ctrl house1Worth={this.state.house1Amount}></House1Ctrl>
-                    <House2></House2>
-                    <Condo></Condo>
-                    <Building></Building>
-                    <Mansion></Mansion>            
-                 </div>
-             </div>
-         </div>
-         }
-   }
-
-export default Statistics;
+          render()
+          {
+              return <div class="row general">
+              <MoneyCtrl returnCurrentMoney={this.updateCoins} giveCurrentMoney={this.state.currentMoney} currentPerSecond={this.state.moneyPerSecond}></MoneyCtrl>
+                  
+              <div class="col-md-6 p-0">
+                  <Options></Options>
+                  <Items></Items>
+              </div>
+              <div class="col-md-3 p-0">
+                  <div class="row">
+                      <ItemPlus></ItemPlus>
+                  </div>
+                  <BuyAndSell></BuyAndSell>
+                  <div class="items_count">
+                     <PlotCtrl returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} plotWorth={this.state.plotAmount} plotQuantity={this.state.plotQuantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></PlotCtrl>
+                     <House1></House1>
+                     <House2></House2>
+                     <Condo></Condo>
+                     <Building></Building>
+                     <Mansion></Mansion>            
+                  </div>
+              </div>
+          </div>
+          }
+    }
+ 
+ export default Statistics;
