@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import PlayerStats from "../../components/playerStats"
-import Player from '../../components/playerStats'
 
 class MoneyCtrl extends Component {
    constructor(props){
@@ -8,6 +7,7 @@ class MoneyCtrl extends Component {
         this.moneyHandler = this.moneyHandler.bind(this);
           this.state = {
             currentMoney: 0
+            
           }
          }
 

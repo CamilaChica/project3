@@ -27,5 +27,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+<<<<<<< HEAD
+=======
+  },
+  "devDependencies": {
+    "json-loader": "^0.5.7"
+>>>>>>> 7668b7ea07c1413234d7f45d3ae8afbbeaac1c28
   }
 }
