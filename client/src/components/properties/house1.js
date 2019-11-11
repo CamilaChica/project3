@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 
 
 class House1 extends Component {
+  
   constructor(props){
     super(props);
       this.addOne = this.addOne.bind(this);

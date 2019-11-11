@@ -10,8 +10,7 @@ import BuyAndSell from "../../components/buyandsell"
 //properties
 
 import PlotCtrl from '../controllers/controllerPlot'
-import House1Ctrl from '../controllers/controllerHouse1'
-//import House1 from "../../components/properties/house1"
+import House1 from "../../components/properties/house1"
 import House2 from "../../components/properties/house2"
 import Condo from "../../components/properties/condo"
 import Building from "../../components/properties/building"
@@ -22,8 +21,9 @@ class Statistics extends Component {
 
     constructor(props){
         super(props);
+        
             this.state = {
-                currentMoney : 0,
+                currentMoney : 0 ,
                 
                 playerName: "",
                 playerLevel: "",
@@ -39,16 +39,42 @@ class Statistics extends Component {
                 plotQuantity: 0,
 
                 house1Amount: 30,
-                house1Quantity: 0,
-
                 house2Amount: 45,
-
                 condoAmount: 67.5,
                 buidingAmount: 101.25,
-                mansionAmount: 151.875,                                
+                mansionAmount: 151.875,
+                
+                
             }
          
          }
+    
+          
+        componentDidMount() {
+            this.interval = setInterval(() => 
+            this.setState({currentMoney:this.state.currentMoney+this.state.moneyPerSecond}
+                ), 1000);
+          }
+        componentWillUnmount() {
+            clearInterval(this.interval);
+          }
+
+        updateCoins= amount => {
+            this.setState({currentMoney:amount})
+          };
+
+        updateInfo = (propertyWorth, propertyQuantity, worth, amount, ptotal, perSecond) =>{
+            this.setState(
+                {   
+                    [propertyWorth]:worth,
+                    [propertyQuantity]:amount,
+                    propertyTotal: ptotal,
+                    moneyPerSecond: perSecond
+                })
+          }
+
+
+
          render()
          {
              return <div class="row general">
