@@ -10,7 +10,8 @@ import BuyAndSell from "../../components/buyandsell"
 //properties
 
 import PlotCtrl from '../controllers/controllerPlot'
-import House1 from "../../components/properties/house1"
+import House1Ctrl from '../controllers/controllerHouse1'
+//import House1 from "../../components/properties/house1"
 import House2 from "../../components/properties/house2"
 import Condo from "../../components/properties/condo"
 import Building from "../../components/properties/building"
@@ -22,7 +23,7 @@ class Statistics extends Component {
     constructor(props){
         super(props);
             this.state = {
-                currentMoney : 0 ,
+                currentMoney : 0,
                 
                 playerName: "",
                 playerLevel: "",
@@ -38,7 +39,10 @@ class Statistics extends Component {
                 plotQuantity: 0,
 
                 house1Amount: 30,
+                house1Quantity: 0,
+
                 house2Amount: 45,
+
                 condoAmount: 67.5,
                 buidingAmount: 101.25,
                 mansionAmount: 151.875,                                
@@ -61,7 +65,7 @@ class Statistics extends Component {
                  <BuyAndSell></BuyAndSell>
                  <div class="items_count">
                     <PlotCtrl plotWorth={this.state.plotAmount}></PlotCtrl>
-                    <House1></House1>
+                    <House1Ctrl house1Worth={this.state.house1Amount}></House1Ctrl>
                     <House2></House2>
                     <Condo></Condo>
                     <Building></Building>
