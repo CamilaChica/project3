@@ -21,13 +21,13 @@ class PlotCtrl extends Component {
                   );
               }                     
              };
-        
-        render()
-              {
-                return <Plot action={this.plotHandler} moneyDisplay={this.state.plotAmount} quantity={this.state.plotQuantity}></Plot>
-              }
-      
-        }
+              
+             render()
+             {
+             return <Plot action={this.plotHandler} moneyDisplay={this.props.plotWorth} plotQuantity={this.props.plotQuantity}></Plot>
+             }
+     
+       }
 
 export default PlotCtrl;
 
