@@ -6,8 +6,7 @@ class MoneyCtrl extends Component {
       super(props);
         this.moneyHandler = this.moneyHandler.bind(this);
           this.state = {
-            currentMoney: 0
-            
+            currentMoney: this.props.giveCurrentMoney
           }
          }
 

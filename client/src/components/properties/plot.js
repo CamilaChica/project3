@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import Player from '../playerStats';
 
 
 class Plot extends Component {

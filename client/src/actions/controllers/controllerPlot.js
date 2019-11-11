@@ -30,7 +30,7 @@ class PlotCtrl extends Component {
               
         render()
               {
-              return <Plot action={this.plotHandler} moneyDisplay={this.state.plotAmount} quantity={this.state.plotQuantity}></Plot>
+                return <Plot action={this.plotHandler} moneyDisplay={this.state.plotAmount} quantity={this.state.plotQuantity}></Plot>
               }
       
         }

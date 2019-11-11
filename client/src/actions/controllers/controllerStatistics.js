@@ -48,7 +48,7 @@ class Statistics extends Component {
          render()
          {
              return <div class="row general">
-             <MoneyCtrl></MoneyCtrl>
+              <MoneyCtrl giveCurrentMoney={this.state.currentMoney}></MoneyCtrl>
                  
              <div class="col-md-6 p-0">
                  <Options></Options>
@@ -60,7 +60,7 @@ class Statistics extends Component {
                  </div>
                  <BuyAndSell></BuyAndSell>
                  <div class="items_count">
-                    <PlotCtrl></PlotCtrl>
+                    <PlotCtrl plotWorth={this.state.plotAmount}></PlotCtrl>
                     <House1></House1>
                     <House2></House2>
                     <Condo></Condo>

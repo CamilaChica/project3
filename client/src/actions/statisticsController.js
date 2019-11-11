@@ -1,23 +1,23 @@
 import React,{Component} from 'react';
 
-import PlayerStats from "./components/playerStats"
-import Options from "./components/options"
-import Items from "./components/items"
-import ItemPlus from "./components/item_plus"
-import BuyAndSell from "./components/buyandsell"
+import PlayerStats from "./moneyController"
+import Options from "../components/options"
+import Items from "../components/items"
+import ItemPlus from "../components/item_plus"
+import BuyAndSell from "../components/buyandsell"
 
 //properties
 
-import Plot from "./components/properties/plot"
-import House1 from "./components/properties/house1"
-import House2 from "./components/properties/house2"
-import Condo from "./components/properties/condo"
-import Building from "./components/properties/building"
-import Mansion from "./components/properties/mansion"
+import Plot from "./plotController"
+import House1 from "../components/properties/house1"
+import House2 from "../components/properties/house2"
+import Condo from "../components/properties/condo"
+import Building from "../components/properties/building"
+import Mansion from "../components/properties/mansion"
 
 
 import './App.css';
-class App extends Component{
+class Statistics extends Component{
     
 
     constructor(props){
@@ -117,4 +117,4 @@ class App extends Component{
 
 
 
-export default App;
+export default Statistics;
