@@ -2,38 +2,32 @@ import React,{Component} from 'react';
 import House1 from '../../components/properties/house1'
 
 class House1Ctrl extends Component {
-        constructor(props){
-                super(props);
-                  this.house1Handler = this.house1Handler.bind(this);
-                    this.state = {
-                        currentMoney: 0,
-                        house1Amount : 0,
-                        house1Quantity: 0,
-                        propertyTotal: 0
-          
-                    }
-                   }
+  constructor(props){
+          super(props);
+            this.house1Handler = this.house1Handler.bind(this);
+             }
 
-        house1Handler() {
-                this.setState((preState) => {
-    
-                    if (preState.currentMoney >= preState.house1Amount){
-                        return {
-                            currentMoney: preState.currentMoney - preState.house1Amount,
-                            house1Amount : preState.house1Amount * 1.5,
-                            house1Quantity: preState.house1Quantity + 1,
-                            propertyTotal: preState.propertyTotal +1
-                            };
-                    }              
-                   });
-              }
+  house1Handler() {
+              if (this.props.currentMoney >= this.props.house1Worth){
+                  this.props.returnCurrentMoney(this.props.currentMoney - this.props.house1Worth);
+
+                  this.props.updateInfo(
+                      "house1Amount",
+                      "house1Quantity",
+                      this.props.house1Worth * 1.5,
+                      this.props.house1Quantity + 1,
+                      this.props.purchaseTotal + 1,
+                      this.props.currentPerSecond + 3
+                  );
+              }                     
+             };
               
-        render()
-              {
-                return <House1 action={this.house1Handler} moneyDisplay={this.state.house1Amount} quantity={this.state.house1Quantity}></House1>
-              }
-      
-        }
+             render()
+             {
+             return <House1 action={this.house1Handler} moneyDisplay={this.props.house1Worth} house1Quantity={this.props.house1Quantity}></House1>
+             }
+     
+       }
 
 export default House1Ctrl;
 
