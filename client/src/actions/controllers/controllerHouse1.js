@@ -17,7 +17,7 @@ class House1Ctrl extends Component {
                       this.props.house1Worth * 1.5,
                       this.props.house1Quantity + 1,
                       this.props.purchaseTotal + 1,
-                      this.props.currentPerSecond + 3
+                      this.props.currentPerSecond + 6
                   );
               }                     
              };

@@ -11,7 +11,7 @@ class House2 extends Component {
           <img src="./images/dollar.png" alt=""/>
       <p>{this.props.moneyDisplay}</p>
       </div>
-      <h2>{this.props.plotQuantity}</h2>
+      <h2>{this.props.house2Quantity}</h2>
       </div>
       </a>
     }

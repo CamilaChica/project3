@@ -11,8 +11,8 @@ import BuyAndSell from "../../components/buyandsell"
 
 import PlotCtrl from '../controllers/controllerPlot'
 import House1Ctrl from '../controllers/controllerHouse1'
-import House2 from "../../components/properties/house2"
-import Condo from "../../components/properties/condo"
+import House2Ctrl from '../controllers/controllerHouse2'
+import CondoCtrl from '../controllers/controllerCondo'
 import Building from "../../components/properties/building"
 import Mansion from "../../components/properties/mansion"
 
@@ -42,9 +42,11 @@ class Statistics extends Component {
                 house1Quantity: 0,
 
                 house2Amount: 45,
-                house1Quantity: 0,
+                house2Quantity: 0,
 
                 condoAmount: 67.5,
+                condoQuantity: 0,
+
                 buidingAmount: 101.25,
                 mansionAmount: 151.875,
                 
@@ -98,7 +100,8 @@ class Statistics extends Component {
 
                      <House2Ctrl returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} house2Worth={this.state.house2Amount} house2Quantity={this.state.house2Quantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></House2Ctrl>
 
-                     <Condo></Condo>
+                     <CondoCtrl returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} condoWorth={this.state.condoAmount} condoQuantity={this.state.condoQuantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></CondoCtrl>
+
                      <Building></Building>
                      <Mansion></Mansion>            
                   </div>
