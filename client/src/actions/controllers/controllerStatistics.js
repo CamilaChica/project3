@@ -42,6 +42,8 @@ class Statistics extends Component {
                 house1Quantity: 0,
 
                 house2Amount: 45,
+                house1Quantity: 0,
+
                 condoAmount: 67.5,
                 buidingAmount: 101.25,
                 mansionAmount: 151.875,
@@ -93,8 +95,9 @@ class Statistics extends Component {
                      <PlotCtrl returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} plotWorth={this.state.plotAmount} plotQuantity={this.state.plotQuantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></PlotCtrl>
                      
                      <House1Ctrl returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} house1Worth={this.state.house1Amount} house1Quantity={this.state.house1Quantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></House1Ctrl>
-                     
-                     <House2></House2>
+
+                     <House2Ctrl returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} house2Worth={this.state.house2Amount} house2Quantity={this.state.house2Quantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></House2Ctrl>
+
                      <Condo></Condo>
                      <Building></Building>
                      <Mansion></Mansion>            
