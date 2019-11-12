@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import Building from '../../components/properties/building'
+import Building from '../../../components/properties/building'
 
 class BuildingCtrl extends Component {
   constructor(props){

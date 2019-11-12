@@ -9,12 +9,12 @@ import BuyAndSell from "../../components/buyandsell"
 
 //properties
 
-import PlotCtrl from '../controllers/controllerPlot'
-import House1Ctrl from '../controllers/controllerHouse1'
-import House2Ctrl from '../controllers/controllerHouse2'
-import CondoCtrl from '../controllers/controllerCondo'
-import BuildingCtrl from '../controllers/controllerBuilding'
-import MansionCtrl from '../controllers/controllerMansion'
+import PlotCtrl from './properties/controllerPlot'
+import House1Ctrl from './properties/controllerHouse1'
+import House2Ctrl from './properties/controllerHouse2'
+import CondoCtrl from './properties/controllerCondo'
+import BuildingCtrl from './properties/controllerBuilding'
+import MansionCtrl from './properties/controllerMansion'
 
 class Statistics extends Component {
  

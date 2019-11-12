@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import Condo from '../../components/properties/condo'
+import Condo from '../../../components/properties/condo'
 
 class CondoCtrl extends Component {
   constructor(props){

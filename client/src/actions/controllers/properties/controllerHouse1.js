@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import House1 from '../../components/properties/house1'
+import House1 from '../../../components/properties/house1'
 
 class House1Ctrl extends Component {
   constructor(props){

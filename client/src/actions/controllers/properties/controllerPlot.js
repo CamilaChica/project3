@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import Plot from '../../components/properties/plot'
+import Plot from '../../../components/properties/plot'
 
 class PlotCtrl extends Component {
   constructor(props){
