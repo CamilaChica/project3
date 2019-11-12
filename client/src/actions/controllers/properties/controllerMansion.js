@@ -17,7 +17,7 @@ class MansionCtrl extends Component {
                       this.props.mansionWorth * 1.5,
                       this.props.mansionQuantity + 1,
                       this.props.purchaseTotal + 1,
-                      this.props.currentPerSecond + 3
+                      this.props.currentPerSecond + 15
                   );
               }                     
              };

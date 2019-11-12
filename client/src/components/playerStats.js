@@ -1,5 +1,5 @@
 import React,{Component, useEffect} from 'react';
-import ClickedCoin from '../actions/clickedCoin';
+
 
 
 
@@ -36,7 +36,7 @@ class Player extends Component {
         
         </div>
         <div class="level">
-            <h3>Level 1</h3>
+            <h3>Level 0</h3>
             <img src="./images/medal.png" alt=""/>
         </div>
     </div>

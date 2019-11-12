@@ -1,7 +1,4 @@
 import React,{Component} from 'react';
-import Player from '../playerStats';
-
-
 
 class House1 extends Component {
   
