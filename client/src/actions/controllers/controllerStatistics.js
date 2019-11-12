@@ -51,7 +51,7 @@ class Statistics extends Component {
                 buildingQuantity: 0,
 
                 mansionAmount: 151.875,
-                mansionbuildingQuantity: 0,
+                mansionQuantity: 0,
                 
                 
             }
