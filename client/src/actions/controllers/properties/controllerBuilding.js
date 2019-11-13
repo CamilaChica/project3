@@ -5,7 +5,13 @@ class BuildingCtrl extends Component {
   constructor(props){
           super(props);
             this.buildingHandler = this.buildingHandler.bind(this);
+            this.state = {
+              buildingPerSecond: 0,
+              percentageTotal: 0
+            }
              }
+
+
 
   buildingHandler() {
               if (this.props.currentMoney >= this.props.buildingWorth){
@@ -19,15 +25,31 @@ class BuildingCtrl extends Component {
                       this.props.purchaseTotal + 1,
                       this.props.currentPerSecond + 12
                   );
-              }                     
-             };
+
+                  this.setState(preState =>{
+                    return {buildingPerSecond: preState.buildingPerSecond + 12}
+                  })
+
+                  
+
+                  this.setState(preState =>{
+                    return {percentageTotal: (((preState.buildingPerSecond/this.props.currentPerSecond)*100)+"%")}
+                  })
+              }
+
+              
+      
+                                  
+             }
               
              render()
              {
-             return <Building action={this.buildingHandler} moneyDisplay={this.props.buildingWorth} buildingQuantity={this.props.buildingQuantity}></Building>
+             return <Building buildingProductionPercent={this.state.percentageTotal} buildingCoinPerSecond={this.state.buildingPerSecond} action={this.buildingHandler} moneyDisplay={this.props.buildingWorth} buildingQuantity={this.props.buildingQuantity}></Building>
              }
      
        }
+      
 
 export default BuildingCtrl;
+
 

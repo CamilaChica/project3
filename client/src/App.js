@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import './App.css';
 
-import Statistics from "./actions/controllers/controllerStatistics"
+import MainCtrl from "./actions/controllers/mainController"
 
 
 class App extends Component{
@@ -12,7 +12,7 @@ class App extends Component{
     render()
 {
     return <div class="row general">
-    <Statistics></Statistics>
+    <MainCtrl></MainCtrl>
 </div>
 }
 }

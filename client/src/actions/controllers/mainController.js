@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
+import ReactTooltip from 'react-tooltip'
 //import '../../css/App.css';
 
-import MoneyCtrl from '../controllers/controllerMoney'
+import MoneyCtrl from './controllerMoney'
 import Options from "../../components/options"
 import Items from "../../components/items"
 import ItemPlus from "../../components/item_plus"
@@ -16,7 +17,7 @@ import CondoCtrl from './properties/controllerCondo'
 import BuildingCtrl from './properties/controllerBuilding'
 import MansionCtrl from './properties/controllerMansion'
 
-class Statistics extends Component {
+class MainCtrl extends Component {
  
 
     constructor(props){
@@ -110,8 +111,9 @@ class Statistics extends Component {
                      <MansionCtrl returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} mansionWorth={this.state.mansionAmount} mansionQuantity={this.state.mansionQuantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></MansionCtrl>           
                   </div>
               </div>
+              <ReactTooltip multiline={true} place="left" type="dark" effect="float"/>
           </div>
           }
     }
  
- export default Statistics;
+ export default MainCtrl;
