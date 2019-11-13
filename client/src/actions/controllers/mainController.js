@@ -90,7 +90,7 @@ class MainCtrl extends Component {
                   
               <div class="col-md-6 p-0">
                   <Options></Options>
-                  <Items></Items>
+                  <ItemsCtrl plotQuantity={this.state.plotQuantity} house1Quantity={this.state.house1Quantity} house2Quantity={this.state.house2Quantity} condoQuantity={this.state.condoQuantity} buildingQuantity={this.state.buildingQuantity} mansionQuantity={this.state.mansionQuantity}></ItemsCtrl>
               </div>
               <div class="col-md-3 p-0">
                   <div class="row">
