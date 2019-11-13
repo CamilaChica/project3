@@ -23,7 +23,7 @@ class BuildingCtrl extends Component {
                       this.props.buildingWorth * 1.5,
                       this.props.buildingQuantity + 1,
                       this.props.purchaseTotal + 1,
-                      this.props.currentPerSecond + 12
+                      this.props.currentPerSecond + 15
                   );
 
                   this.setState(preState =>{
