@@ -11,8 +11,6 @@ class PlotCtrl extends Component {
       }
        }
 
-
-
 plotHandler() {
         if (this.props.currentMoney >= this.props.plotWorth){
             this.props.returnCurrentMoney(this.props.currentMoney - this.props.plotWorth);
@@ -25,7 +23,7 @@ plotHandler() {
                       this.props.purchaseTotal + 1,
                       this.props.currentPerSecond + 3
                   );
-                  
+
                   this.setState(preState =>{
                     return {plotPerSecond: preState.plotPerSecond + 3}
                   })
