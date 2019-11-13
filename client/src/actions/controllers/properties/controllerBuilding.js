@@ -3,19 +3,19 @@ import Building from '../../../components/properties/building'
 
 class BuildingCtrl extends Component {
   constructor(props){
-          super(props);
-            this.buildingHandler = this.buildingHandler.bind(this);
-            this.state = {
-              buildingPerSecond: 0,
-              percentageTotal: 0
-            }
-             }
+    super(props);
+      this.buildingHandler = this.buildingHandler.bind(this);
+      this.state = {
+        buildingPerSecond: 0,
+        percentageTotal: 0
+      }
+       }
 
 
 
   buildingHandler() {
-              if (this.props.currentMoney >= this.props.buildingWorth){
-                  this.props.returnCurrentMoney(this.props.currentMoney - this.props.buildingWorth);
+    if (this.props.currentMoney >= this.props.buildingWorth){
+      this.props.returnCurrentMoney(this.props.currentMoney - this.props.buildingWorth);
 
                   this.props.updateInfo(
                       "buildingAmount",
@@ -35,16 +35,24 @@ class BuildingCtrl extends Component {
                   this.setState(preState =>{
                     return {percentageTotal: (((preState.buildingPerSecond/this.props.currentPerSecond)*100)+"%")}
                   })
-              }
+              }}
 
+              componentDidMount() {
+                this.interval = setInterval(() => 
+                this.setState(
+                  this.setState(preState =>{
+                    return {percentageTotal: (((preState.buildingPerSecond/this.props.currentPerSecond)*100)+"%") }
+                    })
+                    ), 1000);
+  }
               
       
                                   
-             }
+             
               
              render()
              {
-             return <Building buildingProductionPercent={this.state.percentageTotal} buildingCoinPerSecond={this.state.buildingPerSecond} action={this.buildingHandler} moneyDisplay={this.props.buildingWorth} buildingQuantity={this.props.buildingQuantity}></Building>
+              return <Building buildingProductionPercent={this.state.percentageTotal} buildingCoinPerSecond={this.state.buildingPerSecond} action={this.buildingHandler} moneyDisplay={this.props.buildingWorth} buildingQuantity={this.props.buildingQuantity}></Building>
              }
      
        }

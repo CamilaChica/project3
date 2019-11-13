@@ -3,13 +3,17 @@ import House1 from '../../../components/properties/house1'
 
 class House1Ctrl extends Component {
   constructor(props){
-          super(props);
-            this.house1Handler = this.house1Handler.bind(this);
-             }
+    super(props);
+      this.house1Handler = this.house1Handler.bind(this);
+      this.state = {
+        house1PerSecond: 0,
+        percentageTotal: 0
+      }
+       }
 
-  house1Handler() {
-              if (this.props.currentMoney >= this.props.house1Worth){
-                  this.props.returnCurrentMoney(this.props.currentMoney - this.props.house1Worth);
+house1Handler() {
+        if (this.props.currentMoney >= this.props.house1Worth){
+            this.props.returnCurrentMoney(this.props.currentMoney - this.props.house1Worth);
 
                   this.props.updateInfo(
                       "house1Amount",
@@ -19,12 +23,31 @@ class House1Ctrl extends Component {
                       this.props.purchaseTotal + 1,
                       this.props.currentPerSecond + 6
                   );
-              }                     
-             };
+             
+                  this.setState(preState =>{
+                    return {house1PerSecond: preState.house1PerSecond + 6}
+                  })
+
+                  
+                  
+                    this.setState(preState =>{
+                      return {percentageTotal: (((preState.house1PerSecond/this.props.currentPerSecond)*100)+"%")}
+                    })
+                  
+              }}
+
+              componentDidMount() {
+                this.interval = setInterval(() => 
+                this.setState(
+                  this.setState(preState =>{
+                    return {percentageTotal: (((preState.house1PerSecond/this.props.currentPerSecond)*100)+"%") }
+                    })
+                    ), 1000);
+  }
               
              render()
              {
-             return <House1 action={this.house1Handler} moneyDisplay={this.props.house1Worth} house1Quantity={this.props.house1Quantity}></House1>
+              return <House1 house1ProductionPercent={this.state.percentageTotal} house1CoinPerSecond={this.state.house1PerSecond} action={this.house1Handler} moneyDisplay={this.props.house1Worth} house1Quantity={this.props.house1Quantity}></House1>
              }
      
        }

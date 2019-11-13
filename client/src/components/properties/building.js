@@ -5,12 +5,12 @@ class Building extends Component {
 
   constructor(props){
     super(props);
-    
-        this.state = {
-            toolTip:"Building <br> Produces: "+this.props.buildingProductionPercent + "<br> Production per second: " + this.props.buildingCoinPerSecond 
-        }
-  
+
+    this.state = {
+      toolTip:"Building <br> Produces: "+this.props.buildingProductionPercent + "<br> Production per second: " + this.props.buildingCoinPerSecond 
   }
+
+}
 
   componentDidMount() {
     this.interval = setInterval(() => 
@@ -20,7 +20,6 @@ class Building extends Component {
       })
         ), 1000);
   }
-
     render() {
       return <a onClick={this.props.action}>
       <div class="item_house_cont">
