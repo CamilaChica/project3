@@ -4,7 +4,7 @@ import ReactTooltip from 'react-tooltip'
 
 import MoneyCtrl from './controllerMoney'
 import Options from "../../components/options"
-import Items from "../../components/items"
+import ItemsCtrl from "./game/itemsController"
 import ItemPlus from "../../components/item_plus"
 import BuyAndSell from "../../components/buyandsell"
 
