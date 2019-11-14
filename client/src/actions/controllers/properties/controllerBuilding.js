@@ -7,7 +7,8 @@ class BuildingCtrl extends Component {
       this.buildingHandler = this.buildingHandler.bind(this);
       this.state = {
         buildingPerSecond: 0,
-        percentageTotal: 0
+        percentageTotal: 0,
+        buySellPrice: 0
       }
        }
 
@@ -28,7 +29,7 @@ class BuildingCtrl extends Component {
                     );
   
                     this.setState(preState =>{
-                      return {buildingPerSecond: preState.buildingPerSecond + 12}
+                      return {buildingPerSecond: preState.buildingPerSecond + 15}
                     })
   
                     
@@ -51,12 +52,13 @@ class BuildingCtrl extends Component {
                     );
   
                     this.setState(preState =>{
-                      return {buildingPerSecond: preState.buildingPerSecond - 12}
+                      return {buildingPerSecond: preState.buildingPerSecond - 15}
                     })
   
                     
   
                     this.setState(preState =>{
+                      console.log(preState.buildingPerSecond + "   " + this.props.currentPerSecond);
                       return {percentageTotal: (((preState.buildingPerSecond/this.props.currentPerSecond)*100)+"%")}
                     })
                 }
@@ -68,12 +70,15 @@ class BuildingCtrl extends Component {
                 this.interval = setInterval(() => 
                 this.setState(
                   this.setState(preState =>{
-                    if(this.props.buyOrSell == "buy"){
-
+                    
+                    if(this.props.buyOrSell == "sell"){
+                      return {buySellPrice:this.props.buildingWorth*.8,
+                        percentageTotal: (((preState.buildingPerSecond/this.props.currentPerSecond)*100)+"%")
+                      }
                     } else{
-                      
+                      return {buySellPrice:this.props.buildingWorth,
+                        percentageTotal: (((preState.buildingPerSecond/this.props.currentPerSecond)*100)+"%")}
                     }
-                    return {percentageTotal: (((preState.buildingPerSecond/this.props.currentPerSecond)*100)+"%") }
                     })
                     ), 1000);
   }
@@ -84,7 +89,7 @@ class BuildingCtrl extends Component {
               
              render()
              {
-              return <Building currentMoney={this.props.currentMoney} buildingProductionPercent={this.state.percentageTotal} buildingCoinPerSecond={this.state.buildingPerSecond} action={this.buildingHandler} moneyDisplay={this.props.buildingWorth} buildingQuantity={this.props.buildingQuantity}></Building>
+              return <Building currentMoney={this.props.currentMoney} buildingProductionPercent={this.state.percentageTotal} buildingCoinPerSecond={this.state.buildingPerSecond} action={this.buildingHandler} moneyDisplay={this.state.buySellPrice} buildingQuantity={this.props.buildingQuantity}></Building>
              }
      
        }
