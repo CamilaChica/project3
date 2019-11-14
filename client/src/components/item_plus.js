@@ -3,6 +3,14 @@ import React,{Component} from 'react';
 
 
 class ItemPlus extends Component {
+  constructor(props){
+    super(props);
+    
+        this.state = {
+        }
+      }
+
+
     render() {
       return <div class="items_plus">
       <ul>

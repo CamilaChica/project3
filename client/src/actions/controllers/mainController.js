@@ -36,10 +36,10 @@ class MainCtrl extends Component {
                 clickAmount: 1,
                 moneyPerSecond: 0,
 
-                plotAmount: 50,
+                plotAmount: 1,
                 plotQuantity: 0,
 
-                house1Amount: 250,
+                house1Amount: 1,
                 house1Quantity: 0,
 
                 house2Amount: 1000,
@@ -62,7 +62,9 @@ class MainCtrl extends Component {
           
         componentDidMount() {
             this.interval = setInterval(() => 
-            this.setState({currentMoney:this.state.currentMoney+this.state.moneyPerSecond}
+           
+            this.setState(
+                {currentMoney:this.state.currentMoney+this.state.moneyPerSecond}
                 ), 1000);
           }
         componentWillUnmount() {
@@ -90,7 +92,7 @@ class MainCtrl extends Component {
                   
               <div class="col-md-6 p-0">
                   <Options></Options>
-                  <ItemsCtrl></ItemsCtrl>
+                  <ItemsCtrl plotQuantity={this.state.plotQuantity} house1Quantity={this.state.house1Quantity} house2Quantity={this.state.house2Quantity} condoQuantity={this.state.condoQuantity} buildingQuantity={this.state.buildingQuantity} mansionQuantity={this.state.mansionQuantity}></ItemsCtrl>
               </div>
               <div class="col-md-3 p-0">
                   <div class="row">

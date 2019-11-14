@@ -38,8 +38,11 @@ plotHandler() {
 
               componentDidMount() {
                 this.interval = setInterval(() => 
+                
                 this.setState(
+                  
                   this.setState(preState =>{
+                    console.log(this.state.plotQuantity)
                     return {percentageTotal: (((preState.plotPerSecond/this.props.currentPerSecond)*100)+"%") }
                     })
                     ), 1000);

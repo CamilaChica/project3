@@ -33,9 +33,13 @@ class Items extends Component {
      
     
       componentDidMount() {
-        this.interval = setInterval(() => 
+        
+        this.interval = setInterval(() =>
+         
             this.setState((prevState, props) => {
+              
                 if((this.props.plotQuantity%5)==0  && this.props.plotQuantity != 0 && this.props.plotQuantity != this.state.plotCount){
+                  
                 const plotrow = {content: <li><img src="./images/plot.png" alt=""/></li> };
                 return {    plotRows: [...prevState.plotRows, plotrow],
                             plotCount: prevState.plotCount + 5 };

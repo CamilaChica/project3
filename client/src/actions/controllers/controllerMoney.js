@@ -8,7 +8,8 @@ class MoneyCtrl extends Component {
        this.moneyHandler = this.moneyHandler.bind(this);
        this.state = {
          currentLevel: 0,
-         medalImage:"./images/medal.png"
+         medalImage:"./images/medal.png",
+         
        }
        
         }
@@ -23,7 +24,7 @@ class MoneyCtrl extends Component {
     
     this.setState((prevState, props) => {
       
-      if(this.props.house1Quantity == 20){
+      if(this.props.house1Quantity == 20 ){
           
           this.setState({
           currentLevel:1,
@@ -38,11 +39,6 @@ class MoneyCtrl extends Component {
         this.setState({
           currentLevel:3,
           medalImage:"./images/e0524.png"
-        })
-      }else{
-        this.setState({
-          currentLevel:0,
-          medalImage:"./images/medal.png"
         })
       }
       
