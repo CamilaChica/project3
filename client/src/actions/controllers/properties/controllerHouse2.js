@@ -46,7 +46,7 @@ house2Handler() {
   }
              render()
              {
-              return <House2 house2ProductionPercent={this.state.percentageTotal} house2CoinPerSecond={this.state.house2PerSecond} action={this.house2Handler} moneyDisplay={this.props.house2Worth} house2Quantity={this.props.house2Quantity}></House2>
+              return <House2 currentMoney={this.props.currentMoney} house2ProductionPercent={this.state.percentageTotal} house2CoinPerSecond={this.state.house2PerSecond} action={this.house2Handler} moneyDisplay={this.props.house2Worth} house2Quantity={this.props.house2Quantity}></House2>
              }
      
        }

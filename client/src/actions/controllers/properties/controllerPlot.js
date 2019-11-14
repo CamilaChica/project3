@@ -47,7 +47,7 @@ plotHandler() {
    
              render()
              {
-              return <Plot plotProductionPercent={this.state.percentageTotal} plotCoinPerSecond={this.state.plotPerSecond} action={this.plotHandler} moneyDisplay={this.props.plotWorth} plotQuantity={this.props.plotQuantity}></Plot>
+              return <Plot currentMoney={this.props.currentMoney} plotProductionPercent={this.state.percentageTotal} plotCoinPerSecond={this.state.plotPerSecond} action={this.plotHandler} moneyDisplay={this.props.plotWorth} plotQuantity={this.props.plotQuantity}></Plot>
              }
      
        }

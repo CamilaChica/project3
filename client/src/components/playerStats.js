@@ -36,8 +36,8 @@ class Player extends Component {
         
         </div>
         <div class="level">
-            <h3>Level 0</h3>
-            <img src="./images/medal.png" alt=""/>
+            <h3>Level {this.props.currentLevel}</h3>
+            <img src={this.props.currentMedal} alt=""/>
         </div>
     </div>
     

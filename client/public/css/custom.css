@@ -107,6 +107,14 @@
     margin-right: 20px;
 }
 
+img.grayscale {
+    -webkit-filter: grayscale(100%) ;
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale (100%);
+    -o-filter: grayscale ( 100%) ;
+    filter: grayscale (100%) ;
+}
+
 .items_plus ul {
     width: 100%;
     display: contents;

@@ -49,7 +49,7 @@ class CondoCtrl extends Component {
                   
                   render()
              {
-              return <Condo condoProductionPercent={this.state.percentageTotal} condoCoinPerSecond={this.state.condoPerSecond} action={this.condoHandler} moneyDisplay={this.props.condoWorth} condoQuantity={this.props.condoQuantity}></Condo>
+              return <Condo currentMoney={this.props.currentMoney} condoProductionPercent={this.state.percentageTotal} condoCoinPerSecond={this.state.condoPerSecond} action={this.condoHandler} moneyDisplay={this.props.condoWorth} condoQuantity={this.props.condoQuantity}></Condo>
              }
      
        }

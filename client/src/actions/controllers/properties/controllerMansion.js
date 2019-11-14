@@ -47,7 +47,7 @@ mansionHandler() {
      
              render()
              {
-              return <Mansion mansionProductionPercent={this.state.percentageTotal} mansionCoinPerSecond={this.state.mansionPerSecond} action={this.mansionHandler} moneyDisplay={this.props.mansionWorth} mansionQuantity={this.props.mansionQuantity}></Mansion>
+              return <Mansion currentMoney={this.props.currentMoney} mansionProductionPercent={this.state.percentageTotal} mansionCoinPerSecond={this.state.mansionPerSecond} action={this.mansionHandler} moneyDisplay={this.props.mansionWorth} mansionQuantity={this.props.mansionQuantity}></Mansion>
              }
      
        }

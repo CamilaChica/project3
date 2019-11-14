@@ -52,7 +52,7 @@ class BuildingCtrl extends Component {
               
              render()
              {
-              return <Building buildingProductionPercent={this.state.percentageTotal} buildingCoinPerSecond={this.state.buildingPerSecond} action={this.buildingHandler} moneyDisplay={this.props.buildingWorth} buildingQuantity={this.props.buildingQuantity}></Building>
+              return <Building currentMoney={this.props.currentMoney} buildingProductionPercent={this.state.percentageTotal} buildingCoinPerSecond={this.state.buildingPerSecond} action={this.buildingHandler} moneyDisplay={this.props.buildingWorth} buildingQuantity={this.props.buildingQuantity}></Building>
              }
      
        }

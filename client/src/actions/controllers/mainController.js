@@ -86,11 +86,11 @@ class MainCtrl extends Component {
           render()
           {
               return <div class="row general">
-              <MoneyCtrl returnCurrentMoney={this.updateCoins} giveCurrentMoney={this.state.currentMoney} currentPerSecond={this.state.moneyPerSecond}></MoneyCtrl>
+              <MoneyCtrl house1Quantity={this.state.house1Quantity} condoQuantity={this.state.condoQuantity} mansionQuantity={this.state.mansionQuantity} returnCurrentMoney={this.updateCoins} giveCurrentMoney={this.state.currentMoney} currentPerSecond={this.state.moneyPerSecond}></MoneyCtrl>
                   
               <div class="col-md-6 p-0">
                   <Options></Options>
-                  <ItemsCtrl plotQuantity={this.state.plotQuantity} house1Quantity={this.state.house1Quantity} house2Quantity={this.state.house2Quantity} condoQuantity={this.state.condoQuantity} buildingQuantity={this.state.buildingQuantity} mansionQuantity={this.state.mansionQuantity}></ItemsCtrl>
+                  <ItemsCtrl></ItemsCtrl>
               </div>
               <div class="col-md-3 p-0">
                   <div class="row">

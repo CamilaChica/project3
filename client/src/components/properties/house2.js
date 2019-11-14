@@ -7,27 +7,36 @@ class House2 extends Component {
     super(props);
     
         this.state = {
-            toolTip:"House2 <br> Produces: "+this.props.house2ProductionPercent + "<br> Production per second: " + this.props.house2CoinPerSecond 
+            toolTip:"House2 <br> Produces: "+this.props.house2ProductionPercent + "<br> Production per second: " + this.props.house2CoinPerSecond,
+            toggleBlackAndWhite: "grayscale"
         }
   
   }
 
   componentDidMount() {
     this.interval = setInterval(() => 
-    this.setState(
+    this.setState((prevState, props) => {
+    if(this.props.moneyDisplay> this.props.currentMoney){
+      this.setState(preState =>{ return {toggleBlackAndWhite: "grayscale"}})
+      
+    }else{
+      this.setState(preState =>{ return {toggleBlackAndWhite: "color"}})
+    }
+
+    
       this.setState(preState =>{
         return {toolTip:"House2 <br> Produces: "+this.props.house2ProductionPercent + " of Total <br> Production per second: " + this.props.house2CoinPerSecond }
       })
-        ), 1000);
+    }), 1000);
   }
 
     render() {
       return <a onClick={this.props.action}>
       <div class="item_house_cont">
-      <img data-tip={this.state.toolTip} src="./images/house2.png" alt=""/>
+      <img data-tip={this.state.toolTip} class={this.state.toggleBlackAndWhite} src="./images/house2.png" alt=""/>
       <div class="date_cont">
           <h3>House</h3>
-          <img src="./images/dollar.png" alt=""/>
+          <img class={this.state.toggleBlackAndWhite} src="./images/dollar.png" alt=""/>
       <p>{this.props.moneyDisplay}</p>
       </div>
       <h2>{this.props.house2Quantity}</h2>
