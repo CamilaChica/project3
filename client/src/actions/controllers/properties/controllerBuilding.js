@@ -14,33 +14,65 @@ class BuildingCtrl extends Component {
 
 
   buildingHandler() {
-    if (this.props.currentMoney >= this.props.buildingWorth){
-      this.props.returnCurrentMoney(this.props.currentMoney - this.props.buildingWorth);
+    if(this.props.buyOrSell== "buy"){
+      if (this.props.currentMoney >= this.props.buildingWorth){
+        this.props.returnCurrentMoney(this.props.currentMoney - this.props.buildingWorth);
+  
+                    this.props.updateInfo(
+                        "buildingAmount",
+                        "buildingQuantity",
+                        this.props.buildingWorth * 1.5,
+                        this.props.buildingQuantity + 1,
+                        this.props.purchaseTotal + 1,
+                        this.props.currentPerSecond + 15
+                    );
+  
+                    this.setState(preState =>{
+                      return {buildingPerSecond: preState.buildingPerSecond + 12}
+                    })
+  
+                    
+  
+                    this.setState(preState =>{
+                      return {percentageTotal: (((preState.buildingPerSecond/this.props.currentPerSecond)*100)+"%")}
+                    })
+                }
+    } else{
+       if (this.props.buildingQuantity != 0){
+        this.props.returnCurrentMoney(this.props.currentMoney + (this.props.buildingWorth*.8));
+  
+                    this.props.updateInfo(
+                        "buildingAmount",
+                        "buildingQuantity",
+                        this.props.buildingWorth * .8,
+                        this.props.buildingQuantity - 1,
+                        this.props.purchaseTotal - 1,
+                        this.props.currentPerSecond - 15
+                    );
+  
+                    this.setState(preState =>{
+                      return {buildingPerSecond: preState.buildingPerSecond - 12}
+                    })
+  
+                    
+  
+                    this.setState(preState =>{
+                      return {percentageTotal: (((preState.buildingPerSecond/this.props.currentPerSecond)*100)+"%")}
+                    })
+                }
 
-                  this.props.updateInfo(
-                      "buildingAmount",
-                      "buildingQuantity",
-                      this.props.buildingWorth * 1.5,
-                      this.props.buildingQuantity + 1,
-                      this.props.purchaseTotal + 1,
-                      this.props.currentPerSecond + 15
-                  );
-
-                  this.setState(preState =>{
-                    return {buildingPerSecond: preState.buildingPerSecond + 12}
-                  })
-
-                  
-
-                  this.setState(preState =>{
-                    return {percentageTotal: (((preState.buildingPerSecond/this.props.currentPerSecond)*100)+"%")}
-                  })
-              }}
+    }
+    }
 
               componentDidMount() {
                 this.interval = setInterval(() => 
                 this.setState(
                   this.setState(preState =>{
+                    if(this.props.buyOrSell == "buy"){
+
+                    } else{
+                      
+                    }
                     return {percentageTotal: (((preState.buildingPerSecond/this.props.currentPerSecond)*100)+"%") }
                     })
                     ), 1000);

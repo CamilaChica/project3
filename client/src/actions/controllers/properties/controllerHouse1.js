@@ -12,6 +12,8 @@ class House1Ctrl extends Component {
        }
 
 house1Handler() {
+  console.log(this.props.buyOrSell)
+  if(this.props.buyOrSell== "buy"){
         if (this.props.currentMoney >= this.props.house1Worth){
             this.props.returnCurrentMoney(this.props.currentMoney - this.props.house1Worth);
 
@@ -34,7 +36,31 @@ house1Handler() {
                       return {percentageTotal: (((preState.house1PerSecond/this.props.currentPerSecond)*100)+"%")}
                     })
                   
-              }}
+              }} else{
+                if (this.props.house1Quantity != 0){
+                  this.props.returnCurrentMoney(this.props.currentMoney + (this.props.house1Worth*.8));
+  
+               
+                  this.props.updateInfo(
+                      "house1Amount",
+                      "house1Quantity",
+                      this.props.house1Worth * .8,
+                      this.props.house1Quantity - 1,
+                      this.props.purchaseTotal - 1,
+                      this.props.currentPerSecond - 6
+                  );
+  
+                  this.setState(preState =>{
+                    return {condoPerSecond: preState.house1PerSecond - 12}
+                  })
+  
+                  
+                  
+                    this.setState(preState =>{
+                      return {percentageTotal: (((preState.house1PerSecond/this.props.currentPerSecond)*100)+"%")}
+                    })
+                }}
+              }
 
               componentDidMount() {
                 this.interval = setInterval(() => 

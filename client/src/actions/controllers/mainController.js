@@ -6,7 +6,7 @@ import MoneyCtrl from './controllerMoney'
 import Options from "../../components/options"
 import ItemsCtrl from "./game/itemsController"
 import ItemPlus from "../../components/item_plus"
-import BuyAndSell from "../../components/buyandsell"
+import BuyAndSellCtrl from "./game/controllerBuySell"
 
 //properties
 
@@ -25,6 +25,7 @@ class MainCtrl extends Component {
         
             this.state = {
                 currentMoney : 0 ,
+                buyOrSell: "buy",
                 
                 playerName: "",
                 playerLevel: "",
@@ -42,16 +43,16 @@ class MainCtrl extends Component {
                 house1Amount: 1,
                 house1Quantity: 0,
 
-                house2Amount: 1000,
+                house2Amount: 1,
                 house2Quantity: 0,
 
-                condoAmount: 5000,
+                condoAmount: 1,
                 condoQuantity: 0,
 
-                buildingAmount: 25000,
+                buildingAmount: 1,
                 buildingQuantity: 0,
 
-                mansionAmount: 125000,
+                mansionAmount: 1,
                 mansionQuantity: 0,
                 
                 
@@ -74,6 +75,10 @@ class MainCtrl extends Component {
         updateCoins= amount => {
             this.setState({currentMoney:amount})
           };
+
+        buyOrSell= purchase => {
+            this.setState({buyOrSell:purchase})
+        };
 
         updateInfo = (propertyWorth, propertyQuantity, worth, amount, ptotal, perSecond) =>{
             this.setState(
@@ -98,19 +103,19 @@ class MainCtrl extends Component {
                   <div class="row">
                       <ItemPlus></ItemPlus>
                   </div>
-                  <BuyAndSell></BuyAndSell>
+                  <BuyAndSellCtrl buyOrSell={this.buyOrSell}></BuyAndSellCtrl>
                   <div class="items_count">
-                     <PlotCtrl returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} plotWorth={this.state.plotAmount} plotQuantity={this.state.plotQuantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></PlotCtrl>
+                     <PlotCtrl buyOrSell={this.state.buyOrSell} returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} plotWorth={this.state.plotAmount} plotQuantity={this.state.plotQuantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></PlotCtrl>
                      
-                     <House1Ctrl returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} house1Worth={this.state.house1Amount} house1Quantity={this.state.house1Quantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></House1Ctrl>
+                     <House1Ctrl buyOrSell={this.state.buyOrSell} returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} house1Worth={this.state.house1Amount} house1Quantity={this.state.house1Quantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></House1Ctrl>
 
-                     <House2Ctrl returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} house2Worth={this.state.house2Amount} house2Quantity={this.state.house2Quantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></House2Ctrl>
+                     <House2Ctrl buyOrSell={this.state.buyOrSell} returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} house2Worth={this.state.house2Amount} house2Quantity={this.state.house2Quantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></House2Ctrl>
 
-                     <CondoCtrl returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} condoWorth={this.state.condoAmount} condoQuantity={this.state.condoQuantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></CondoCtrl>
+                     <CondoCtrl buyOrSell={this.state.buyOrSell} returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} condoWorth={this.state.condoAmount} condoQuantity={this.state.condoQuantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></CondoCtrl>
 
-                     <BuildingCtrl returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} buildingWorth={this.state.buildingAmount} buildingQuantity={this.state.buildingQuantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></BuildingCtrl>
+                     <BuildingCtrl buyOrSell={this.state.buyOrSell} returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} buildingWorth={this.state.buildingAmount} buildingQuantity={this.state.buildingQuantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></BuildingCtrl>
 
-                     <MansionCtrl returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} mansionWorth={this.state.mansionAmount} mansionQuantity={this.state.mansionQuantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></MansionCtrl>           
+                     <MansionCtrl buyOrSell={this.state.buyOrSell} returnCurrentMoney={this.updateCoins} updateInfo={this.updateInfo} currentMoney={this.state.currentMoney} mansionWorth={this.state.mansionAmount} mansionQuantity={this.state.mansionQuantity} purchaseTotal={this.state.propertyTotal} currentPerSecond={this.state.moneyPerSecond}></MansionCtrl>           
                   </div>
               </div>
               <ReactTooltip multiline={true} place="left" type="dark" effect="float"/>

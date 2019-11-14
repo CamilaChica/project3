@@ -12,6 +12,7 @@ class PlotCtrl extends Component {
        }
 
 plotHandler() {
+  if(this.props.buyOrSell== "buy"){
         if (this.props.currentMoney >= this.props.plotWorth){
             this.props.returnCurrentMoney(this.props.currentMoney - this.props.plotWorth);
 
@@ -33,8 +34,32 @@ plotHandler() {
                     this.setState(preState =>{
                       return {percentageTotal: (((preState.plotPerSecond/this.props.currentPerSecond)*100)+"%")}
                     })
-                  
-              }}
+     
+                  }} else{
+                    if (this.props.plotQuantity != 0){
+                      this.props.returnCurrentMoney(this.props.currentMoney + (this.props.plotWorth*.8));
+      
+                   
+                      this.props.updateInfo(
+                          "plotAmount",
+                          "plotQuantity",
+                          this.props.plotWorth * .8,
+                          this.props.plotQuantity - 1,
+                          this.props.purchaseTotal - 1,
+                          this.props.currentPerSecond - 3
+                      );
+      
+                      this.setState(preState =>{
+                        return {condoPerSecond: preState.plotPerSecond - 12}
+                      })
+      
+                      
+                      
+                        this.setState(preState =>{
+                          return {percentageTotal: (((preState.plotPerSecond/this.props.currentPerSecond)*100)+"%")}
+                        })
+                    }}
+                  }
 
               componentDidMount() {
                 this.interval = setInterval(() => 

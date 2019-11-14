@@ -12,6 +12,7 @@ class House2Ctrl extends Component {
        }
 
 house2Handler() {
+  if(this.props.buyOrSell== "buy"){
         if (this.props.currentMoney >= this.props.house2Worth){
             this.props.returnCurrentMoney(this.props.currentMoney - this.props.house2Worth);
             
@@ -34,7 +35,31 @@ house2Handler() {
                       return {percentageTotal: (((preState.house2PerSecond/this.props.currentPerSecond)*100)+"%")}
                     })
                   
-              }}
+              }} else{
+                if (this.props.house2Quantity != 0){
+                  this.props.returnCurrentMoney(this.props.currentMoney + (this.props.house2Worth*.8));
+  
+               
+                  this.props.updateInfo(
+                      "house2Amount",
+                      "house2Quantity",
+                      this.props.house2Worth * .8,
+                      this.props.house2Quantity - 1,
+                      this.props.purchaseTotal - 1,
+                      this.props.currentPerSecond - 9
+                  );
+  
+                  this.setState(preState =>{
+                    return {condoPerSecond: preState.house2PerSecond - 12}
+                  })
+  
+                  
+                  
+                    this.setState(preState =>{
+                      return {percentageTotal: (((preState.house2PerSecond/this.props.currentPerSecond)*100)+"%")}
+                    })
+                }}
+              }
 
               componentDidMount() {
                 this.interval = setInterval(() => 

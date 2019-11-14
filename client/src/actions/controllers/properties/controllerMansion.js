@@ -12,6 +12,8 @@ class MansionCtrl extends Component {
        }
 
 mansionHandler() {
+  if(this.props.buyOrSell== "buy"){
+
         if (this.props.currentMoney >= this.props.mansionWorth){
             this.props.returnCurrentMoney(this.props.currentMoney - this.props.mansionWorth);
 
@@ -33,8 +35,33 @@ mansionHandler() {
                     this.setState(preState =>{
                       return {percentageTotal: (((preState.mansionPerSecond/this.props.currentPerSecond)*100)+"%")}
                     })
-                  
-              }}
+
+                  }} else{
+                    if (this.props.mansionQuantity != 0){
+                      this.props.returnCurrentMoney(this.props.currentMoney + (this.props.mansionWorth*.8));
+      
+                   
+                      this.props.updateInfo(
+                          "mansionAmount",
+                          "mansionQuantity",
+                          this.props.mansionWorth * .8,
+                          this.props.mansionQuantity - 1,
+                          this.props.purchaseTotal - 1,
+                          this.props.currentPerSecond - 18
+                      );
+      
+                      this.setState(preState =>{
+                        return {condoPerSecond: preState.mansionPerSecond - 12}
+                      })
+      
+                      
+                      
+                        this.setState(preState =>{
+                          return {percentageTotal: (((preState.mansionPerSecond/this.props.currentPerSecond)*100)+"%")}
+                        })
+                    }}
+                  }
+    
 
               componentDidMount() {
                 this.interval = setInterval(() => 

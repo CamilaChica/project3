@@ -12,6 +12,7 @@ class CondoCtrl extends Component {
        }
 
   condoHandler() {
+    if(this.props.buyOrSell== "buy"){
         if (this.props.currentMoney >= this.props.condoWorth){
             this.props.returnCurrentMoney(this.props.currentMoney - this.props.condoWorth);
 
@@ -35,7 +36,33 @@ class CondoCtrl extends Component {
                       return {percentageTotal: (((preState.condoPerSecond/this.props.currentPerSecond)*100)+"%")}
                     })
                   
-              }}
+              }
+            } else{
+              if (this.props.condoQuantity != 0){
+                this.props.returnCurrentMoney(this.props.currentMoney + (this.props.condoWorth*.8));
+
+             
+                this.props.updateInfo(
+                    "condoAmount",
+                    "condoQuantity",
+                    this.props.condoWorth * .8,
+                    this.props.condoQuantity - 1,
+                    this.props.purchaseTotal - 1,
+                    this.props.currentPerSecond - 12
+                );
+
+                this.setState(preState =>{
+                  return {condoPerSecond: preState.condoPerSecond - 12}
+                })
+
+                
+                
+                  this.setState(preState =>{
+                    return {percentageTotal: (((preState.condoPerSecond/this.props.currentPerSecond)*100)+"%")}
+                  })
+              }
+              }
+            }
 
               componentDidMount() {
                 this.interval = setInterval(() => 
