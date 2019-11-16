@@ -8,15 +8,21 @@ class Player extends Component {
     constructor(props){
         super(props);
           this.toggleHover = this.toggleHover.bind(this);
+          this.startGameMessage = this.startGameMessage.bind(this);
             this.state = {
               //currentMoney : 0 ,
-              hovered: false
+              hovered: false,
+              startGame:<h3><font color="red">Click the coin to start the game!</font></h3>
             }
          }
 
     
       toggleHover() {
         this.setState({hovered: !this.state.hovered})
+      }
+
+      startGameMessage(){
+        this.setState({startGame:""})
       }
 
     render() {
@@ -31,7 +37,10 @@ class Player extends Component {
         
             <div class="coin">
                 <a onClick={this.props.action}>
-                    <img onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}   style={{transform: `${this.state.hovered ? 'scale(1.5,1.5)' : 'scale(1,1)'}`}} src="./images/dollar.png" alt=""/>
+                    <img onClick={this.startGameMessage} onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}   style={{transform: `${this.state.hovered ? 'scale(1.5,1.5)' : 'scale(1,1)'}`}} src="./images/dollar.png" alt=""/>
+                    <br></br>
+                    {this.state.startGame}
+                    
             </a>
         
         </div>
