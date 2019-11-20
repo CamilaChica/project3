@@ -17,7 +17,9 @@ class Options extends Component {
           <div class="options"></div>
           <div data-tip={this.state.statusMessage} class="Stats">Status</div>
       </div>
-      <div class="col-md-8 description"><h3>Mansions are now available</h3></div>
+      <div class="col-md-8 description"><h3>{this.props.showTitle}</h3>
+      {this.props.showBody}
+      </div>
       <div class="col-md-2 p-0">
           <div class="info"></div>
           <div class="legacy"></div>
