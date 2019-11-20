@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import ReactTooltip from 'react-tooltip'
+import cookie from 'react-cookies'
 //import '../../css/App.css';
 
 import MoneyCtrl from './controllerMoney'
@@ -27,6 +28,7 @@ class MainCtrl extends Component {
                 currentMoney : 0 ,
                 buyOrSell: "buy",
                 currentBonus: 0,
+                gameStart: true,
                 
                 playerName: "",
                 playerLevel: "",
@@ -63,28 +65,111 @@ class MainCtrl extends Component {
          }
     
           
-        componentDidMount() {
+        componentDidMount() {  
+            
+            if(Number(cookie.load("currentMoney"))>=0 && this.state.gameStart == true){
+                this.setState(
+                    {currentMoney:Number(cookie.load("currentMoney")),
+                    currentBonus: Number(cookie.load("currentBonus")),
+                    moneyPerSecond: Number(cookie.load("moneyPerSecond")),
+                    moneyPerSecondWithBonus: Number(cookie.load("moneyPerSecondWithBonus")),
+
+                    propertyTotal: Number(cookie.load("propertyTotal")),
+                    propertyPuchased: Number(cookie.load("propertyPuchased")),
+                    propertySold: Number(cookie.load("propertySold")),
+
+                    plotAmount: Number(cookie.load("plotAmount")),
+                    house1Amount: Number(cookie.load("house1Amount")),
+                    house2Amount: Number(cookie.load("house2Amount")),
+                    condoAmount: Number(cookie.load("condoAmount")),
+                    buildingAmount: Number(cookie.load("buildingAmount")),
+                    mansionAmount: Number(cookie.load("mansionAmount")),
+
+                    plotQuantity: Number(cookie.load("plotQuantity")),
+                    house1Quantity: Number(cookie.load("house1Quantity")),
+                    house2Quantity: Number(cookie.load("house2Quantity")),
+                    condoQuantity: Number(cookie.load("condoQuantity")),
+                    buildingQuantity: Number(cookie.load("buildingQuantity")),
+                    mansionQuantity: Number(cookie.load("mansionQuantity")),
+
+                    gameStart: true
+                })
+            }else{
+                
+            }
             this.interval = setInterval(() => 
-           
-            this.setState(
-                {currentMoney:Math.round(this.state.currentMoney+(this.state.moneyPerSecond *(1+this.state.currentBonus))),
+            
+            this.setState({
+                currentMoney:Math.round(this.state.currentMoney+(this.state.moneyPerSecond *(1+this.state.currentBonus))),
                     moneyPerSecondWithBonus:Math.round((this.state.moneyPerSecond *(1+this.state.currentBonus)))}
-                ), 1000);
+                )
+            , 1000);
           }
+
+        
         componentWillUnmount() {
             clearInterval(this.interval);
           }
 
         updateCoins= amount => {
             this.setState({currentMoney:Math.round(amount)})
+
+            cookie.save("currentMoney", this.state.currentMoney);
+                cookie.save("currentBonus", this.state.currentBonus);
+                cookie.save("moneyPerSecond", this.state.moneyPerSecond);
+                cookie.save("moneyPerSecondWithBonus", this.state.moneyPerSecondWithBonus);
+
+                cookie.save("propertyTotal", this.state.propertyTotal);
+                cookie.save("propertyPuchased", this.state.propertyPuchased);
+                cookie.save("propertySold", this.state.propertySold);
+
+                cookie.save("plotAmount", this.state.plotAmount);
+                cookie.save("house1Amount", this.state.house1Amount);
+                cookie.save("house2Amount", this.state.house2Amount);
+                cookie.save("condoAmount", this.state.condoAmount);
+                cookie.save("buildingAmount", this.state.buildingAmount);
+                cookie.save("mansionAmount", this.state.mansionAmount);
+
+                cookie.save("plotQuantity", this.state.plotQuantity);
+                cookie.save("house1Quantity", this.state.house1Quantity);
+                cookie.save("house2Quantity", this.state.house2Quantity);
+                cookie.save("condoQuantity", this.state.condoQuantity);
+                cookie.save("buildingQuantity", this.state.buildingQuantity);
+                cookie.save("mansionQuantity", this.state.mansionQuantity);
+            
           };
 
         buyOrSell= purchase => {
             this.setState({buyOrSell:purchase})
+
+            
         };
 
         currentBonus= bonus => {
             this.setState({currentBonus:bonus})
+
+            cookie.save("currentMoney", this.state.currentMoney);
+                cookie.save("currentBonus", this.state.currentBonus);
+                cookie.save("moneyPerSecond", this.state.moneyPerSecond);
+                cookie.save("moneyPerSecondWithBonus", this.state.moneyPerSecondWithBonus);
+
+                cookie.save("propertyTotal", this.state.propertyTotal);
+                cookie.save("propertyPuchased", this.state.propertyPuchased);
+                cookie.save("propertySold", this.state.propertySold);
+
+                cookie.save("plotAmount", this.state.plotAmount);
+                cookie.save("house1Amount", this.state.house1Amount);
+                cookie.save("house2Amount", this.state.house2Amount);
+                cookie.save("condoAmount", this.state.condoAmount);
+                cookie.save("buildingAmount", this.state.buildingAmount);
+                cookie.save("mansionAmount", this.state.mansionAmount);
+
+                cookie.save("plotQuantity", this.state.plotQuantity);
+                cookie.save("house1Quantity", this.state.house1Quantity);
+                cookie.save("house2Quantity", this.state.house2Quantity);
+                cookie.save("condoQuantity", this.state.condoQuantity);
+                cookie.save("buildingQuantity", this.state.buildingQuantity);
+                cookie.save("mansionQuantity", this.state.mansionQuantity);
         };
 
         updateInfo = (propertyWorth, propertyQuantity, worth, amount, ptotal, perSecond) =>{
@@ -95,6 +180,30 @@ class MainCtrl extends Component {
                     propertyTotal: ptotal,
                     moneyPerSecond: Math.round(perSecond)
                 })
+                cookie.save("currentMoney", this.state.currentMoney);
+                cookie.save("currentBonus", this.state.currentBonus);
+                cookie.save("moneyPerSecond", this.state.moneyPerSecond);
+                cookie.save("moneyPerSecondWithBonus", this.state.moneyPerSecondWithBonus);
+
+                cookie.save("propertyTotal", this.state.propertyTotal);
+                cookie.save("propertyPuchased", this.state.propertyPuchased);
+                cookie.save("propertySold", this.state.propertySold);
+
+                cookie.save("plotAmount", this.state.plotAmount);
+                cookie.save("house1Amount", this.state.house1Amount);
+                cookie.save("house2Amount", this.state.house2Amount);
+                cookie.save("condoAmount", this.state.condoAmount);
+                cookie.save("buildingAmount", this.state.buildingAmount);
+                cookie.save("mansionAmount", this.state.mansionAmount);
+
+                cookie.save("plotQuantity", this.state.plotQuantity);
+                cookie.save("house1Quantity", this.state.house1Quantity);
+                cookie.save("house2Quantity", this.state.house2Quantity);
+                cookie.save("condoQuantity", this.state.condoQuantity);
+                cookie.save("buildingQuantity", this.state.buildingQuantity);
+                cookie.save("mansionQuantity", this.state.mansionQuantity);
+                
+                
           }
 
           render()
