@@ -76,7 +76,7 @@ house2Handler() {
                         percentageTotal: (((preState.house2PerSecond/this.props.currentPerSecond)*100)+"%")}
                     }
                     })
-                    ), 1000);
+                    ), 100);
   }
              render()
              {

@@ -78,7 +78,7 @@ plotHandler() {
                         percentageTotal: (((preState.plotPerSecond/this.props.currentPerSecond)*100)+"%")}
                     }
                     })
-                    ), 1000);
+                    ), 100);
   }
    
              render()

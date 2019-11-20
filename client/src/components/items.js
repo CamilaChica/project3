@@ -114,7 +114,7 @@ class Items extends Component {
 
                 
               })
-          , 1000);
+          , 100);
       }
     componentWillUnmount() {
         clearInterval(this.interval);

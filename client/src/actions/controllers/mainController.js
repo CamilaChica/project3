@@ -9,6 +9,7 @@ import ItemsCtrl from "./game/itemsController"
 import ItemPlusCtrl from "./game/controllerItem_Plus"
 import BuyAndSellCtrl from "./game/controllerBuySell"
 
+
 //properties
 
 import PlotCtrl from './properties/controllerPlot'
@@ -19,11 +20,11 @@ import BuildingCtrl from './properties/controllerBuilding'
 import MansionCtrl from './properties/controllerMansion'
 
 class MainCtrl extends Component {
- 
+    
 
     constructor(props){
         super(props);
-        
+        this.playAudio = this.playAudio.bind(this);
             this.state = {
                 currentMoney : 0 ,
                 buyOrSell: "buy",
@@ -68,6 +69,8 @@ class MainCtrl extends Component {
         componentDidMount() {  
             
             if(Number(cookie.load("currentMoney"))>=0 && this.state.gameStart == true){
+                
+
                 this.setState(
                     {currentMoney:Number(cookie.load("currentMoney")),
                     currentBonus: Number(cookie.load("currentBonus")),
@@ -98,17 +101,19 @@ class MainCtrl extends Component {
                 
             }
             this.interval = setInterval(() => 
-            
+            this.playAudio(),
             this.setState({
                 currentMoney:Math.round(this.state.currentMoney+(this.state.moneyPerSecond *(1+this.state.currentBonus))),
                     moneyPerSecondWithBonus:Math.round((this.state.moneyPerSecond *(1+this.state.currentBonus)))}
                 )
             , 1000);
+            
           }
 
         
         componentWillUnmount() {
             clearInterval(this.interval);
+            
           }
 
         updateCoins= amount => {
@@ -180,6 +185,8 @@ class MainCtrl extends Component {
                     propertyTotal: ptotal,
                     moneyPerSecond: Math.round(perSecond)
                 })
+                
+                
                 cookie.save("currentMoney", this.state.currentMoney);
                 cookie.save("currentBonus", this.state.currentBonus);
                 cookie.save("moneyPerSecond", this.state.moneyPerSecond);
@@ -204,6 +211,11 @@ class MainCtrl extends Component {
                 cookie.save("mansionQuantity", this.state.mansionQuantity);
                 
                 
+          }
+
+          playAudio() {
+            const audioEl = document.getElementsByClassName("audio-element")[0]
+            audioEl.play()
           }
 
           render()
@@ -235,6 +247,10 @@ class MainCtrl extends Component {
                   </div>
               </div>
               <ReactTooltip multiline={true} place="left" type="dark" effect="float"/>
+              
+                <audio autoplay controls className="audio-element">
+                    <source type="audio/mp3" src="./sounds/background_music.mp3"></source>
+                </audio>
           </div>
           }
     }

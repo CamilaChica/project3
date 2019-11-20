@@ -79,7 +79,7 @@ class CondoCtrl extends Component {
                         percentageTotal: (((preState.condoPerSecond/this.props.currentPerSecond)*100)+"%")}
                     }
                     })
-                    ), 1000);
+                    ), 100);
   }
    
                   

@@ -80,7 +80,7 @@ class BuildingCtrl extends Component {
                         percentageTotal: (((preState.buildingPerSecond/this.props.currentPerSecond)*100)+"%")}
                     }
                     })
-                    ), 1000);
+                    ), 100);
   }
               
       
