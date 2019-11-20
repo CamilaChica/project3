@@ -67,8 +67,8 @@ class MainCtrl extends Component {
             this.interval = setInterval(() => 
            
             this.setState(
-                {currentMoney:this.state.currentMoney+(this.state.moneyPerSecond *(1+this.state.currentBonus)),
-                    moneyPerSecondWithBonus:(this.state.moneyPerSecond *(1+this.state.currentBonus))}
+                {currentMoney:Math.round(this.state.currentMoney+(this.state.moneyPerSecond *(1+this.state.currentBonus))),
+                    moneyPerSecondWithBonus:Math.round((this.state.moneyPerSecond *(1+this.state.currentBonus)))}
                 ), 1000);
           }
         componentWillUnmount() {
@@ -76,7 +76,7 @@ class MainCtrl extends Component {
           }
 
         updateCoins= amount => {
-            this.setState({currentMoney:amount})
+            this.setState({currentMoney:Math.round(amount)})
           };
 
         buyOrSell= purchase => {
@@ -90,10 +90,10 @@ class MainCtrl extends Component {
         updateInfo = (propertyWorth, propertyQuantity, worth, amount, ptotal, perSecond) =>{
             this.setState(
                 {   
-                    [propertyWorth]:worth,
+                    [propertyWorth]:Math.round(worth),
                     [propertyQuantity]:amount,
                     propertyTotal: ptotal,
-                    moneyPerSecond: perSecond
+                    moneyPerSecond: Math.round(perSecond)
                 })
           }
 
@@ -108,7 +108,7 @@ class MainCtrl extends Component {
               </div>
               <div class="col-md-3 p-0">
                   <div class="row">
-                      <ItemPlusCtrl currentBonus={this.currentBonus}></ItemPlusCtrl>
+                      <ItemPlusCtrl updateCurrentAmount={this.updateCoins} currentAmount={this.state.currentMoney} currentBonus={this.currentBonus}></ItemPlusCtrl>
                   </div>
                   <BuyAndSellCtrl buyOrSell={this.buyOrSell}></BuyAndSellCtrl>
                   <div class="items_count">

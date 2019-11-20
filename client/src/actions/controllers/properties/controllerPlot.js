@@ -7,7 +7,8 @@ class PlotCtrl extends Component {
       this.plotHandler = this.plotHandler.bind(this);
       this.state = {
         plotPerSecond: 0,
-        percentageTotal: 0
+        percentageTotal: 0,
+        buySellPrice: 0
       }
        }
 
@@ -37,13 +38,13 @@ plotHandler() {
      
                   }} else{
                     if (this.props.plotQuantity != 0){
-                      this.props.returnCurrentMoney(this.props.currentMoney + (this.props.plotWorth*.8));
+                      this.props.returnCurrentMoney(Math.round(this.props.currentMoney + (this.props.plotWorth*.8)));
       
                    
                       this.props.updateInfo(
                           "plotAmount",
                           "plotQuantity",
-                          this.props.plotWorth * .8,
+                          Math.round(this.props.plotWorth * .8),
                           this.props.plotQuantity - 1,
                           this.props.purchaseTotal - 1,
                           this.props.currentPerSecond - 3
@@ -67,15 +68,22 @@ plotHandler() {
                 this.setState(
                   
                   this.setState(preState =>{
-                    console.log(this.state.plotQuantity)
-                    return {percentageTotal: (((preState.plotPerSecond/this.props.currentPerSecond)*100)+"%") }
+                    
+                    if(this.props.buyOrSell == "sell" && this.props.plotQuantity != 0){
+                      return {buySellPrice:Math.round(this.props.plotWorth*.8),
+                        percentageTotal: (((preState.plotPerSecond/this.props.currentPerSecond)*100)+"%")
+                      }
+                    } else{
+                      return {buySellPrice:this.props.plotWorth,
+                        percentageTotal: (((preState.plotPerSecond/this.props.currentPerSecond)*100)+"%")}
+                    }
                     })
                     ), 1000);
   }
    
              render()
              {
-              return <Plot currentMoney={this.props.currentMoney} plotProductionPercent={this.state.percentageTotal} plotCoinPerSecond={this.state.plotPerSecond} action={this.plotHandler} moneyDisplay={this.props.plotWorth} plotQuantity={this.props.plotQuantity}></Plot>
+              return <Plot currentMoney={this.props.currentMoney} plotProductionPercent={this.state.percentageTotal} plotCoinPerSecond={this.state.plotPerSecond} action={this.plotHandler} moneyDisplay={this.state.buySellPrice} plotQuantity={this.props.plotQuantity}></Plot>
              }
      
        }

@@ -35,17 +35,17 @@ class BuildingCtrl extends Component {
                     
   
                     this.setState(preState =>{
-                      return {percentageTotal: (((preState.buildingPerSecond/this.props.currentPerSecond)*100)+"%")}
+                      return {percentageTotal: Math.round((((preState.buildingPerSecond/this.props.currentPerSecond)*100)+"%"))}
                     })
                 }
     } else{
        if (this.props.buildingQuantity != 0){
-        this.props.returnCurrentMoney(this.props.currentMoney + (this.props.buildingWorth*.8));
+        this.props.returnCurrentMoney(Math.round(this.props.currentMoney + (this.props.buildingWorth*.8)));
   
                     this.props.updateInfo(
                         "buildingAmount",
                         "buildingQuantity",
-                        this.props.buildingWorth * .8,
+                        Math.round(this.props.buildingWorth * .8),
                         this.props.buildingQuantity - 1,
                         this.props.purchaseTotal - 1,
                         this.props.currentPerSecond - 15
@@ -58,7 +58,7 @@ class BuildingCtrl extends Component {
                     
   
                     this.setState(preState =>{
-                      console.log(preState.buildingPerSecond + "   " + this.props.currentPerSecond);
+                      
                       return {percentageTotal: (((preState.buildingPerSecond/this.props.currentPerSecond)*100)+"%")}
                     })
                 }
@@ -71,8 +71,8 @@ class BuildingCtrl extends Component {
                 this.setState(
                   this.setState(preState =>{
                     
-                    if(this.props.buyOrSell == "sell"){
-                      return {buySellPrice:this.props.buildingWorth*.8,
+                    if(this.props.buyOrSell == "sell" && this.props.buildingQuantity != 0){
+                      return {buySellPrice:Math.round(this.props.buildingWorth*.8),
                         percentageTotal: (((preState.buildingPerSecond/this.props.currentPerSecond)*100)+"%")
                       }
                     } else{

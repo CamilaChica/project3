@@ -7,7 +7,8 @@ class House1Ctrl extends Component {
       this.house1Handler = this.house1Handler.bind(this);
       this.state = {
         house1PerSecond: 0,
-        percentageTotal: 0
+        percentageTotal: 0,
+        buySellPrice: 0
       }
        }
 
@@ -33,18 +34,18 @@ house1Handler() {
                   
                   
                     this.setState(preState =>{
-                      return {percentageTotal: (((preState.house1PerSecond/this.props.currentPerSecond)*100)+"%")}
+                      return {percentageTotal: Math.round((((preState.house1PerSecond/this.props.currentPerSecond)*100)+"%"))}
                     })
                   
               }} else{
                 if (this.props.house1Quantity != 0){
-                  this.props.returnCurrentMoney(this.props.currentMoney + (this.props.house1Worth*.8));
+                  this.props.returnCurrentMoney(Math.round(this.props.currentMoney + (this.props.house1Worth*.8)));
   
                
                   this.props.updateInfo(
                       "house1Amount",
                       "house1Quantity",
-                      this.props.house1Worth * .8,
+                      Math.round(this.props.house1Worth * .8),
                       this.props.house1Quantity - 1,
                       this.props.purchaseTotal - 1,
                       this.props.currentPerSecond - 6
@@ -66,14 +67,23 @@ house1Handler() {
                 this.interval = setInterval(() => 
                 this.setState(
                   this.setState(preState =>{
-                    return {percentageTotal: (((preState.house1PerSecond/this.props.currentPerSecond)*100)+"%") }
+                    
+                    if(this.props.buyOrSell == "sell" && this.props.house1Quantity != 0){
+                      console.log("test")
+                      return {buySellPrice:Math.round(this.props.house1Worth*.8),
+                        percentageTotal: (((preState.house1PerSecond/this.props.currentPerSecond)*100)+"%")
+                      }
+                    } else{
+                      return {buySellPrice:this.props.house1Worth,
+                        percentageTotal: (((preState.house1PerSecond/this.props.currentPerSecond)*100)+"%")}
+                    }
                     })
                     ), 1000);
   }
               
              render()
              {
-              return <House1 currentMoney={this.props.currentMoney} house1ProductionPercent={this.state.percentageTotal} house1CoinPerSecond={this.state.house1PerSecond} action={this.house1Handler} moneyDisplay={this.props.house1Worth} house1Quantity={this.props.house1Quantity}></House1>
+              return <House1 currentMoney={this.props.currentMoney} house1ProductionPercent={this.state.percentageTotal} house1CoinPerSecond={this.state.house1PerSecond} action={this.house1Handler} moneyDisplay={this.state.buySellPrice} house1Quantity={this.props.house1Quantity}></House1>
              }
      
        }

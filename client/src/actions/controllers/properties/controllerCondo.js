@@ -7,7 +7,8 @@ class CondoCtrl extends Component {
       this.condoHandler = this.condoHandler.bind(this);
       this.state = {
         condoPerSecond: 0,
-        percentageTotal: 0
+        percentageTotal: 0,
+        buySellPrice: 0
       }
        }
 
@@ -33,19 +34,19 @@ class CondoCtrl extends Component {
                   
                   
                     this.setState(preState =>{
-                      return {percentageTotal: (((preState.condoPerSecond/this.props.currentPerSecond)*100)+"%")}
+                      return {percentageTotal: Math.round((((preState.condoPerSecond/this.props.currentPerSecond)*100)+"%"))}
                     })
                   
               }
             } else{
               if (this.props.condoQuantity != 0){
-                this.props.returnCurrentMoney(this.props.currentMoney + (this.props.condoWorth*.8));
+                this.props.returnCurrentMoney(Math.round(this.props.currentMoney + (this.props.condoWorth*.8)));
 
              
                 this.props.updateInfo(
                     "condoAmount",
                     "condoQuantity",
-                    this.props.condoWorth * .8,
+                    Math.round(this.props.condoWorth * .8),
                     this.props.condoQuantity - 1,
                     this.props.purchaseTotal - 1,
                     this.props.currentPerSecond - 12
@@ -68,7 +69,15 @@ class CondoCtrl extends Component {
                 this.interval = setInterval(() => 
                 this.setState(
                   this.setState(preState =>{
-                    return {percentageTotal: (((preState.condoPerSecond/this.props.currentPerSecond)*100)+"%") }
+                    
+                    if(this.props.buyOrSell == "sell" && this.props.condoQuantity != 0){
+                      return {buySellPrice:Math.round(this.props.condoWorth*.8),
+                        percentageTotal: (((preState.condoPerSecond/this.props.currentPerSecond)*100)+"%")
+                      }
+                    } else{
+                      return {buySellPrice:this.props.condoWorth,
+                        percentageTotal: (((preState.condoPerSecond/this.props.currentPerSecond)*100)+"%")}
+                    }
                     })
                     ), 1000);
   }
@@ -76,7 +85,7 @@ class CondoCtrl extends Component {
                   
                   render()
              {
-              return <Condo currentMoney={this.props.currentMoney} condoProductionPercent={this.state.percentageTotal} condoCoinPerSecond={this.state.condoPerSecond} action={this.condoHandler} moneyDisplay={this.props.condoWorth} condoQuantity={this.props.condoQuantity}></Condo>
+              return <Condo currentMoney={this.props.currentMoney} condoProductionPercent={this.state.percentageTotal} condoCoinPerSecond={this.state.condoPerSecond} action={this.condoHandler} moneyDisplay={this.state.buySellPrice} condoQuantity={this.props.condoQuantity}></Condo>
              }
      
        }

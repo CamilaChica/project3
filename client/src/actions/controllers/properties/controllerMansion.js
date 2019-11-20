@@ -7,7 +7,8 @@ class MansionCtrl extends Component {
       this.mansionHandler = this.mansionHandler.bind(this);
       this.state = {
         mansionPerSecond: 0,
-        percentageTotal: 0
+        percentageTotal: 0,
+        buySellPrice: 0
       }
        }
 
@@ -33,18 +34,18 @@ mansionHandler() {
                   
                   
                     this.setState(preState =>{
-                      return {percentageTotal: (((preState.mansionPerSecond/this.props.currentPerSecond)*100)+"%")}
+                      return {percentageTotal: Math.round((((preState.mansionPerSecond/this.props.currentPerSecond)*100)+"%"))}
                     })
 
                   }} else{
                     if (this.props.mansionQuantity != 0){
-                      this.props.returnCurrentMoney(this.props.currentMoney + (this.props.mansionWorth*.8));
+                      this.props.returnCurrentMoney(Math.round(this.props.currentMoney + (this.props.mansionWorth*.8)));
       
                    
                       this.props.updateInfo(
                           "mansionAmount",
                           "mansionQuantity",
-                          this.props.mansionWorth * .8,
+                          Math.round(this.props.mansionWorth * .8),
                           this.props.mansionQuantity - 1,
                           this.props.purchaseTotal - 1,
                           this.props.currentPerSecond - 18
@@ -67,14 +68,22 @@ mansionHandler() {
                 this.interval = setInterval(() => 
                 this.setState(
                   this.setState(preState =>{
-                    return {percentageTotal: (((preState.mansionPerSecond/this.props.currentPerSecond)*100)+"%") }
+                    
+                    if(this.props.buyOrSell == "sell" && this.props.mansionQuantity != 0){
+                      return {buySellPrice:Math.round(this.props.mansionWorth*.8),
+                        percentageTotal: (((preState.mansionPerSecond/this.props.currentPerSecond)*100)+"%")
+                      }
+                    } else{
+                      return {buySellPrice:this.props.mansionWorth,
+                        percentageTotal: (((preState.mansionPerSecond/this.props.currentPerSecond)*100)+"%")}
+                    }
                     })
                     ), 1000);
   }
      
              render()
              {
-              return <Mansion currentMoney={this.props.currentMoney} mansionProductionPercent={this.state.percentageTotal} mansionCoinPerSecond={this.state.mansionPerSecond} action={this.mansionHandler} moneyDisplay={this.props.mansionWorth} mansionQuantity={this.props.mansionQuantity}></Mansion>
+              return <Mansion currentMoney={this.props.currentMoney} mansionProductionPercent={this.state.percentageTotal} mansionCoinPerSecond={this.state.mansionPerSecond} action={this.mansionHandler} moneyDisplay={this.state.buySellPrice} mansionQuantity={this.props.mansionQuantity}></Mansion>
              }
      
        }

@@ -84,144 +84,237 @@ class ItemPlusCtrl extends Component {
           bonus17Cost:35000,
           bonus18Cost:50000,
 
-
+          bonus1Activated:false,
+          bonus2Activated:false,
+          bonus3Activated:false,
+          bonus4Activated:false,
+          bonus5Activated:false,
+          bonus6Activated:false,
+          bonus7Activated:false,
+          bonus8Activated:false,
+          bonus9Activated:false,
+          bonus10Activated:false,
+          bonus11Activated:false,
+          bonus12Activated:false,
+          bonus13Activated:false,
+          bonus14Activated:false,
+          bonus15Activated:false,
+          bonus16Activated:false,
+          bonus17Activated:false,
+          bonus18Activated:false,
         }
       }
 
       item1Press(){
-        
-        this.setState(preState =>{
-          this.props.currentBonus(preState.bonusTotal + this.state.bonus1);
 
-          return {bonus1CurrentColor: "color",
-                  bonusTotal: preState.bonusTotal + preState.bonus1}
-        })
+        if(this.props.currentAmount >= this.state.bonus1Cost  && this.state.bonus1Activated == false){
+          
+          this.setState(preState =>{
+
+            this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus1Cost);
+            this.props.currentBonus(preState.bonusTotal + this.state.bonus1);
+  
+            return {bonus1CurrentColor: "color",
+                    bonusTotal: preState.bonusTotal + preState.bonus1,
+                  bonus1Activated: true}
+          })
+        }
+        
       }
 
       item2Press(){
+        if(this.props.currentAmount >= this.state.bonus2Cost && this.state.bonus2Activated == false){
         this.setState(preState =>{
+          this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus2Cost);
           this.props.currentBonus(preState.bonusTotal + this.state.bonus2);
 
           return {bonus2CurrentColor: "color",
-          bonusTotal: preState.bonusTotal + preState.bonus2}
+          bonusTotal: preState.bonusTotal + preState.bonus2,
+          bonus2Activated: true}
         })
       }
+      }
       item3Press(){
+        if(this.props.currentAmount >= this.state.bonus3Cost && this.state.bonus3Activated == false){
         this.setState(preState =>{
+          this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus3Cost);
           this.props.currentBonus(preState.bonusTotal +this.state.bonus3);
 
           return {bonus3CurrentColor: "color",
-          bonusTotal: preState.bonusTotal + preState.bonus3}
+          bonusTotal: preState.bonusTotal + preState.bonus3,
+          bonus3Activated: true}
         })
       }
+      }
       item4Press(){
+        if(this.props.currentAmount >= this.state.bonus4Cost && this.state.bonus4Activated == false){
         this.setState(preState =>{
+          this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus4Cost);
           this.props.currentBonus(preState.bonusTotal +this.state.bonus4);
 
           return {bonus4CurrentColor: "color",
-          bonusTotal: preState.bonusTotal + preState.bonus4}
+          bonusTotal: preState.bonusTotal + preState.bonus4,
+          bonus4Activated: true}
         })
       }
+      }
       item5Press(){
+        if(this.props.currentAmount >= this.state.bonus5Cost && this.state.bonus5Activated == false){
         this.setState(preState =>{
+          this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus5Cost);
           this.props.currentBonus(preState.bonusTotal +this.state.bonus5);
 
           return {bonus5CurrentColor: "color",
-          bonusTotal: preState.bonusTotal + preState.bonus5}
+          bonusTotal: preState.bonusTotal + preState.bonus5,
+          bonus5Activated: true}
         })
       }
+      }
       item6Press(){
+        let temp = 0;
+        if(this.props.currentAmount >= this.state.bonus6Cost && this.state.bonus6Activated == false){
         this.setState(preState =>{
+          this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus6Cost);
           this.props.currentBonus(preState.bonusTotal +this.state.bonus6);
 
           return {bonus6CurrentColor: "color",
-          bonusTotal: preState.bonusTotal + preState.bonus6}
+          bonusTotal: preState.bonusTotal + preState.bonus6,
+          bonus6Activated: true}
         })
       }
+      }
       item7Press(){
+        if(this.props.currentAmount >= this.state.bonus7Cost && this.state.bonus7Activated == false){
         this.setState(preState =>{
+          this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus7Cost);
           this.props.currentBonus(preState.bonusTotal +this.state.bonus7);
 
           return {bonus7CurrentColor: "color",
-          bonusTotal: preState.bonusTotal + preState.bonus7}
+          bonusTotal: preState.bonusTotal + preState.bonus7,
+          bonus7Activated: true}
         })
+      }
       }
       item8Press(){
+        if(this.props.currentAmount >= this.state.bonus8Cost && this.state.bonus8Activated == false){
         this.setState(preState =>{
+          this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus8Cost);
           this.props.currentBonus(preState.bonusTotal +this.state.bonus8);
           return {bonus8CurrentColor: "color",
-          bonusTotal: preState.bonusTotal + preState.bonus8}
+          bonusTotal: preState.bonusTotal + preState.bonus8,
+          bonus8Activated: true}
         })
+      }
       }
       item9Press(){
+        if(this.props.currentAmount >= this.state.bonus9Cost && this.state.bonus9Activated == false){
         this.setState(preState =>{
+          this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus9Cost);
           this.props.currentBonus(preState.bonusTotal +this.state.bonus9);
           return {bonus9CurrentColor: "color",
-          bonusTotal: preState.bonusTotal + preState.bonus9}
+          bonusTotal: preState.bonusTotal + preState.bonus9,
+          bonus9Activated: true}
         })
+      }
       }
       item10Press(){
+        if(this.props.currentAmount >= this.state.bonus10Cost && this.state.bonus10Activated == false){
         this.setState(preState =>{
+          this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus10Cost);
           this.props.currentBonus(preState.bonusTotal +this.state.bonus10);
           return {bonus10CurrentColor: "color",
-          bonusTotal: preState.bonusTotal + preState.bonus10}
+          bonusTotal: preState.bonusTotal + preState.bonus10,
+          bonus10Activated: true}
         })
+      }
       }
       item11Press(){
+        if(this.props.currentAmount >= this.state.bonus11Cost && this.state.bonus11Activated == false){
         this.setState(preState =>{
+          this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus11Cost);
           this.props.currentBonus(preState.bonusTotal +this.state.bonus11);
           return {bonus11CurrentColor: "color",
-          bonusTotal: preState.bonusTotal + preState.bonus11}
+          bonusTotal: preState.bonusTotal + preState.bonus11,
+          bonus11Activated: true}
         })
+      }
       }
       item12Press(){
+        if(this.props.currentAmount >= this.state.bonus12Cost && this.state.bonus12Activated == false){
         this.setState(preState =>{
+          this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus12Cost);
           this.props.currentBonus(preState.bonusTotal +this.state.bonus12);
           return {bonus12CurrentColor: "color",
-          bonusTotal: preState.bonusTotal + preState.bonus12}
+          bonusTotal: preState.bonusTotal + preState.bonus12,
+          bonus12Activated: true}
         })
+      }
       }
       item13Press(){
+        if(this.props.currentAmount >= this.state.bonus13Cost && this.state.bonus13Activated == false){
         this.setState(preState =>{
+          this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus13Cost);
           this.props.currentBonus(preState.bonusTotal +this.state.bonus13);
           return {bonus13CurrentColor: "color",
-          bonusTotal: preState.bonusTotal + preState.bonus13}
+          bonusTotal: preState.bonusTotal + preState.bonus13,
+          bonus13Activated: true}
         })
+      }
       }
       item14Press(){
+        if(this.props.currentAmount >= this.state.bonus14Cost && this.state.bonus14Activated == false){
         this.setState(preState =>{
+          this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus14Cost);
           this.props.currentBonus(preState.bonusTotal +this.state.bonus14);
           return {bonus14CurrentColor: "color",
-          bonusTotal: preState.bonusTotal + preState.bonus14}
+          bonusTotal: preState.bonusTotal + preState.bonus14,
+          bonus14Activated: true}
         })
+      }
       }
       item15Press(){
+        if(this.props.currentAmount >= this.state.bonus15Cost && this.state.bonus15Activated == false){
         this.setState(preState =>{
+          this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus15Cost);
           this.props.currentBonus(preState.bonusTotal +this.state.bonus15);
           return {bonus15CurrentColor: "color",
-          bonusTotal: preState.bonusTotal + preState.bonus15}
+          bonusTotal: preState.bonusTotal + preState.bonus15,
+          bonus15Activated: true}
         })
+      }
       }
       item16Press(){
+        if(this.props.currentAmount >= this.state.bonus16Cost && this.state.bonus16Activated == false){
         this.setState(preState =>{
+          this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus16Cost);
           this.props.currentBonus(preState.bonusTotal +this.state.bonus16);
           return {bonus16CurrentColor: "color",
-          bonusTotal: preState.bonusTotal + preState.bonus16}
+          bonusTotal: preState.bonusTotal + preState.bonus16,
+          bonus16Activated: true}
         })
+      }
       }
       item17Press(){
+        if(this.props.currentAmount >= this.state.bonus17Cost && this.state.bonus17Activated == false){
         this.setState(preState =>{
+          this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus17Cost);
           this.props.currentBonus(preState.bonusTotal +this.state.bonus17);
           return {bonus17CurrentColor: "color",
-          bonusTotal: preState.bonusTotal + preState.bonus17}
+          bonusTotal: preState.bonusTotal + preState.bonus17,
+          bonus17Activated: true}
         })
       }
+      }
       item18Press(){
+        if(this.props.currentAmount >= this.state.bonus18Cost && this.state.bonus18Activated == false){
         this.setState(preState =>{
+          this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus18Cost);
           this.props.currentBonus(preState.bonusTotal +this.state.bonus18);
           return {bonus18CurrentColor: "color",
-          bonusTotal: preState.bonusTotal + preState.bonus18}
+          bonusTotal: preState.bonusTotal + preState.bonus18,
+          bonus18Activated: true}
         })
+      }
       }
   
     
