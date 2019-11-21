@@ -39,6 +39,9 @@ class Plot extends Component {
       <img data-tip={this.state.toolTip} class={this.state.toggleBlackAndWhite} src="./images/plot.png" alt=""/>
       
       <div class="date_cont">
+      <audio autoplay className="plot-sound">
+                    <source type="audio/mp3" src="./sounds/house_sound.mp3"></source>
+              </audio>
           <h3>Plot</h3>
           <img class={this.state.toggleBlackAndWhite} src="./images/dollar.png" alt=""/>
           <p>{this.props.moneyDisplay}</p>

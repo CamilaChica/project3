@@ -42,6 +42,9 @@ class Condo extends Component {
       <div class="date_cont">
           <h3>Condo</h3>
           <img class={this.state.toggleBlackAndWhite} src="./images/dollar.png" alt=""/>
+          <audio autoplay className="condo-sound">
+                    <source type="audio/mp3" src="./sounds/house_sound.mp3"></source>
+              </audio>
           <p>{this.props.moneyDisplay}</p>
           </div>
               <h2>{this.props.condoQuantity}</h2>

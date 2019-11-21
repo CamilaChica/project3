@@ -4,6 +4,7 @@ import House1 from '../../../components/properties/house1'
 class House1Ctrl extends Component {
   constructor(props){
     super(props);
+    this.playAudioBuyHouse = this.playAudioBuyHouse.bind(this);
       this.house1Handler = this.house1Handler.bind(this);
       this.state = {
         house1PerSecond: 0,
@@ -16,6 +17,7 @@ house1Handler() {
   console.log(this.props.buyOrSell)
   if(this.props.buyOrSell== "buy"){
         if (this.props.currentMoney >= this.props.house1Worth){
+          this.playAudioBuyHouse();
             this.props.returnCurrentMoney(this.props.currentMoney - this.props.house1Worth);
 
                   this.props.updateInfo(
@@ -62,6 +64,10 @@ house1Handler() {
                     })
                 }}
               }
+              playAudioBuyHouse() {
+                const audioEl = document.getElementsByClassName("house1-sound")[0]
+                audioEl.play()
+              } 
 
               componentDidMount() {
                 this.interval = setInterval(() => 

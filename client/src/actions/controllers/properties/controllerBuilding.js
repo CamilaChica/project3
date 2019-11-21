@@ -5,6 +5,7 @@ class BuildingCtrl extends Component {
   constructor(props){
     super(props);
       this.buildingHandler = this.buildingHandler.bind(this);
+      this.playAudioBuyHouse = this.playAudioBuyHouse.bind(this);
       this.state = {
         buildingPerSecond: 0,
         percentageTotal: 0,
@@ -17,6 +18,7 @@ class BuildingCtrl extends Component {
   buildingHandler() {
     if(this.props.buyOrSell== "buy"){
       if (this.props.currentMoney >= this.props.buildingWorth){
+        this.playAudioBuyHouse();
         this.props.returnCurrentMoney(this.props.currentMoney - this.props.buildingWorth);
   
                     this.props.updateInfo(
@@ -84,7 +86,10 @@ class BuildingCtrl extends Component {
   }
               
       
-                                  
+  playAudioBuyHouse() {
+    const audioEl = document.getElementsByClassName("building-sound")[0]
+    audioEl.play()
+  }                 
              
               
              render()

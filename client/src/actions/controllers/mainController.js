@@ -101,14 +101,15 @@ class MainCtrl extends Component {
                 
             }
             this.interval = setInterval(() => 
-            this.playAudio(),
+            this.setState((prevState, props) => {
+            this.playAudio();
             this.setState({
                 currentMoney:Math.round(this.state.currentMoney+(this.state.moneyPerSecond *(1+this.state.currentBonus))),
-                    moneyPerSecondWithBonus:Math.round((this.state.moneyPerSecond *(1+this.state.currentBonus)))}
-                )
-            , 1000);
+                    moneyPerSecondWithBonus:Math.round((this.state.moneyPerSecond *(1+this.state.currentBonus)))
+                })
             
-          }
+            }), 1000);
+        }
 
         
         componentWillUnmount() {
@@ -220,8 +221,10 @@ class MainCtrl extends Component {
 
           render()
           {
+
               return <div class="row general">
-              <MoneyCtrl house1Quantity={this.state.house1Quantity} condoQuantity={this.state.condoQuantity} mansionQuantity={this.state.mansionQuantity} returnCurrentMoney={this.updateCoins} giveCurrentMoney={this.state.currentMoney} currentPerSecond={this.state.moneyPerSecondWithBonus}></MoneyCtrl>
+              <div class="row general">
+              <MoneyCtrl email={this.props.email} house1Quantity={this.state.house1Quantity} condoQuantity={this.state.condoQuantity} mansionQuantity={this.state.mansionQuantity} returnCurrentMoney={this.updateCoins} giveCurrentMoney={this.state.currentMoney} currentPerSecond={this.state.moneyPerSecondWithBonus}></MoneyCtrl>
                   
               <div class="col-md-6 p-0">
                   <OptionsCtrl currentMoney={this.state.currentMoney} playerName={this.state.playerName} playerLevel={this.state.playerLevel} propertyTotal={this.state.propertyTotal} currentPerSecond={this.state.currentPerSecond}></OptionsCtrl>
@@ -248,9 +251,10 @@ class MainCtrl extends Component {
               </div>
               <ReactTooltip multiline={true} place="left" type="dark" effect="float"/>
               
-                <audio autoplay controls className="audio-element">
+                <audio autoplay className="audio-element">
                     <source type="audio/mp3" src="./sounds/background_music.mp3"></source>
                 </audio>
+          </div>
           </div>
           }
     }

@@ -35,6 +35,9 @@ class House2 extends Component {
       <div class="item_house_cont">
       <img data-tip={this.state.toolTip} class={this.state.toggleBlackAndWhite} src="./images/house2.png" alt=""/>
       <div class="date_cont">
+      <audio autoplay className="house2-sound">
+                    <source type="audio/mp3" src="./sounds/house_sound.mp3"></source>
+              </audio>
           <h3>House</h3>
           <img class={this.state.toggleBlackAndWhite} src="./images/dollar.png" alt=""/>
       <p>{this.props.moneyDisplay}</p>

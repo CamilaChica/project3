@@ -4,6 +4,7 @@ import Mansion from '../../../components/properties/mansion'
 class MansionCtrl extends Component {
   constructor(props){
     super(props);
+    this.playAudioBuyHouse = this.playAudioBuyHouse.bind(this);
       this.mansionHandler = this.mansionHandler.bind(this);
       this.state = {
         mansionPerSecond: 0,
@@ -17,7 +18,7 @@ mansionHandler() {
 
         if (this.props.currentMoney >= this.props.mansionWorth){
             this.props.returnCurrentMoney(this.props.currentMoney - this.props.mansionWorth);
-
+            this.playAudioBuyHouse();
                   this.props.updateInfo(
                       "mansionAmount",
                       "mansionQuantity",
@@ -62,6 +63,11 @@ mansionHandler() {
                         })
                     }}
                   }
+
+                  playAudioBuyHouse() {
+                    const audioEl = document.getElementsByClassName("mansion-sound")[0]
+                    audioEl.play()
+                  } 
     
 
               componentDidMount() {

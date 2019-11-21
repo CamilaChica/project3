@@ -44,6 +44,9 @@ componentDidMount() {
       <img data-tip={this.state.toolTip}  class={this.state.toggleBlackAndWhite} src="./images/building.png" alt=""/>
       <div class="date_cont">
           <h3>Building</h3>
+          <audio autoplay className="building-sound">
+                    <source type="audio/mp3" src="./sounds/house_sound.mp3"></source>
+              </audio>
           <img class={this.state.toggleBlackAndWhite}  src="./images/dollar.png" alt=""/>
           <p>{this.props.moneyDisplay}</p>
           </div>

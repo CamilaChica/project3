@@ -4,6 +4,7 @@ import House2 from '../../../components/properties/house2'
 class House2Ctrl extends Component {
   constructor(props){
     super(props);
+    this.playAudioBuyHouse = this.playAudioBuyHouse.bind(this);
       this.house2Handler = this.house2Handler.bind(this);
       this.state = {
         house2PerSecond: 0,
@@ -15,6 +16,7 @@ class House2Ctrl extends Component {
 house2Handler() {
   if(this.props.buyOrSell== "buy"){
         if (this.props.currentMoney >= this.props.house2Worth){
+          this.playAudioBuyHouse();
             this.props.returnCurrentMoney(this.props.currentMoney - this.props.house2Worth);
             
                   this.props.updateInfo(
@@ -61,6 +63,11 @@ house2Handler() {
                     })
                 }}
               }
+
+              playAudioBuyHouse() {
+                const audioEl = document.getElementsByClassName("house2-sound")[0]
+                audioEl.play()
+              } 
 
               componentDidMount() {
                 this.interval = setInterval(() => 

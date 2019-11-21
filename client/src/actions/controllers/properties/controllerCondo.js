@@ -5,6 +5,7 @@ class CondoCtrl extends Component {
   constructor(props){
     super(props);
       this.condoHandler = this.condoHandler.bind(this);
+      this.playAudioBuyHouse = this.playAudioBuyHouse.bind(this);
       this.state = {
         condoPerSecond: 0,
         percentageTotal: 0,
@@ -15,6 +16,7 @@ class CondoCtrl extends Component {
   condoHandler() {
     if(this.props.buyOrSell== "buy"){
         if (this.props.currentMoney >= this.props.condoWorth){
+          this.playAudioBuyHouse();
             this.props.returnCurrentMoney(this.props.currentMoney - this.props.condoWorth);
 
              
@@ -81,6 +83,11 @@ class CondoCtrl extends Component {
                     })
                     ), 100);
   }
+
+                playAudioBuyHouse() {
+                  const audioEl = document.getElementsByClassName("condo-sound")[0]
+                  audioEl.play()
+                }  
    
                   
                   render()

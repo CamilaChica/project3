@@ -4,6 +4,7 @@ import Plot from '../../../components/properties/plot'
 class PlotCtrl extends Component {
   constructor(props){
     super(props);
+    this.playAudioBuyHouse = this.playAudioBuyHouse.bind(this);
       this.plotHandler = this.plotHandler.bind(this);
       this.state = {
         plotPerSecond: 0,
@@ -15,6 +16,7 @@ class PlotCtrl extends Component {
 plotHandler() {
   if(this.props.buyOrSell== "buy"){
         if (this.props.currentMoney >= this.props.plotWorth){
+          this.playAudioBuyHouse();
             this.props.returnCurrentMoney(this.props.currentMoney - this.props.plotWorth);
 
                   this.props.updateInfo(
@@ -79,7 +81,13 @@ plotHandler() {
                     }
                     })
                     ), 100);
+
+                    
   }
+  playAudioBuyHouse() {
+    const audioEl = document.getElementsByClassName("plot-sound")[0]
+    audioEl.play()
+  } 
    
              render()
              {
