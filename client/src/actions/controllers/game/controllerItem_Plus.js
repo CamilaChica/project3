@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import cookie from 'react-cookies'
 import ItemPlus from "../../../components/item_plus"
 
 
@@ -106,7 +107,8 @@ class ItemPlusCtrl extends Component {
       }
 
       item1Press(){
-
+        cookie.save("bonus1Activated",true);
+        console.log(cookie.load("bonus1Activated"));
         if(this.props.currentAmount >= this.state.bonus1Cost  && this.state.bonus1Activated == false){
           
           this.setState(preState =>{
@@ -123,6 +125,7 @@ class ItemPlusCtrl extends Component {
       }
 
       item2Press(){
+        cookie.save("bonus2Activated",true);
         if(this.props.currentAmount >= this.state.bonus2Cost && this.state.bonus2Activated == false){
         this.setState(preState =>{
           this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus2Cost);
@@ -135,6 +138,8 @@ class ItemPlusCtrl extends Component {
       }
       }
       item3Press(){
+
+        cookie.save("bonus3Activated",true);
         if(this.props.currentAmount >= this.state.bonus3Cost && this.state.bonus3Activated == false){
         this.setState(preState =>{
           this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus3Cost);
@@ -147,6 +152,7 @@ class ItemPlusCtrl extends Component {
       }
       }
       item4Press(){
+        cookie.save("bonus4Activated",true);
         if(this.props.currentAmount >= this.state.bonus4Cost && this.state.bonus4Activated == false){
         this.setState(preState =>{
           this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus4Cost);
@@ -159,6 +165,7 @@ class ItemPlusCtrl extends Component {
       }
       }
       item5Press(){
+        cookie.save("bonus5Activated",true);
         if(this.props.currentAmount >= this.state.bonus5Cost && this.state.bonus5Activated == false){
         this.setState(preState =>{
           this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus5Cost);
@@ -172,6 +179,7 @@ class ItemPlusCtrl extends Component {
       }
       item6Press(){
         let temp = 0;
+        cookie.save("bonus6Activated",true);
         if(this.props.currentAmount >= this.state.bonus6Cost && this.state.bonus6Activated == false){
         this.setState(preState =>{
           this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus6Cost);
@@ -184,6 +192,7 @@ class ItemPlusCtrl extends Component {
       }
       }
       item7Press(){
+        cookie.save("bonus7Activated",true);
         if(this.props.currentAmount >= this.state.bonus7Cost && this.state.bonus7Activated == false){
         this.setState(preState =>{
           this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus7Cost);
@@ -196,6 +205,7 @@ class ItemPlusCtrl extends Component {
       }
       }
       item8Press(){
+        cookie.save("bonus8Activated",true);
         if(this.props.currentAmount >= this.state.bonus8Cost && this.state.bonus8Activated == false){
         this.setState(preState =>{
           this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus8Cost);
@@ -207,6 +217,7 @@ class ItemPlusCtrl extends Component {
       }
       }
       item9Press(){
+        cookie.save("bonus9Activated",true);
         if(this.props.currentAmount >= this.state.bonus9Cost && this.state.bonus9Activated == false){
         this.setState(preState =>{
           this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus9Cost);
@@ -218,6 +229,7 @@ class ItemPlusCtrl extends Component {
       }
       }
       item10Press(){
+        cookie.save("bonus10Activated",true);
         if(this.props.currentAmount >= this.state.bonus10Cost && this.state.bonus10Activated == false){
         this.setState(preState =>{
           this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus10Cost);
@@ -229,6 +241,7 @@ class ItemPlusCtrl extends Component {
       }
       }
       item11Press(){
+        cookie.save("bonus11Activated",true);
         if(this.props.currentAmount >= this.state.bonus11Cost && this.state.bonus11Activated == false){
         this.setState(preState =>{
           this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus11Cost);
@@ -240,6 +253,7 @@ class ItemPlusCtrl extends Component {
       }
       }
       item12Press(){
+        cookie.save("bonus12Activated",true);
         if(this.props.currentAmount >= this.state.bonus12Cost && this.state.bonus12Activated == false){
         this.setState(preState =>{
           this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus12Cost);
@@ -251,6 +265,7 @@ class ItemPlusCtrl extends Component {
       }
       }
       item13Press(){
+        cookie.save("bonus13Activated",true);
         if(this.props.currentAmount >= this.state.bonus13Cost && this.state.bonus13Activated == false){
         this.setState(preState =>{
           this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus13Cost);
@@ -262,6 +277,7 @@ class ItemPlusCtrl extends Component {
       }
       }
       item14Press(){
+        cookie.save("bonus14Activated",true);
         if(this.props.currentAmount >= this.state.bonus14Cost && this.state.bonus14Activated == false){
         this.setState(preState =>{
           this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus14Cost);
@@ -273,6 +289,7 @@ class ItemPlusCtrl extends Component {
       }
       }
       item15Press(){
+        cookie.save("bonus15Activated",true);
         if(this.props.currentAmount >= this.state.bonus15Cost && this.state.bonus15Activated == false){
         this.setState(preState =>{
           this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus15Cost);
@@ -284,6 +301,7 @@ class ItemPlusCtrl extends Component {
       }
       }
       item16Press(){
+        cookie.save("bonus16Activated",true);
         if(this.props.currentAmount >= this.state.bonus16Cost && this.state.bonus16Activated == false){
         this.setState(preState =>{
           this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus16Cost);
@@ -296,6 +314,7 @@ class ItemPlusCtrl extends Component {
       }
       item17Press(){
         if(this.props.currentAmount >= this.state.bonus17Cost && this.state.bonus17Activated == false){
+          cookie.save("bonus17Activated",true);
         this.setState(preState =>{
           this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus17Cost);
           this.props.currentBonus(preState.bonusTotal +this.state.bonus17);
@@ -307,18 +326,131 @@ class ItemPlusCtrl extends Component {
       }
       item18Press(){
         if(this.props.currentAmount >= this.state.bonus18Cost && this.state.bonus18Activated == false){
+          cookie.save("bonus18Activated",true);
         this.setState(preState =>{
           this.props.updateCurrentAmount(this.props.currentAmount - this.state.bonus18Cost);
           this.props.currentBonus(preState.bonusTotal +this.state.bonus18);
           return {bonus18CurrentColor: "color",
           bonusTotal: preState.bonusTotal + preState.bonus18,
           bonus18Activated: true}
+          
         })
       }
       }
   
     
+      componentDidMount() { 
+        if(cookie.load("bonus1Activated") == "true"){
+          this.setState({
+            bonus1CurrentColor: "color",
+            bonusTotal: this.state.bonusTotal + this.state.bonus1,
+            bonus1Activated: true
+        })
+      }
+        if(cookie.load("bonus2Activated") == "true"){
+          this.setState( {bonus2CurrentColor: "color",
+            bonusTotal: this.state.bonusTotal + this.state.bonus2,
+            bonus1Activated: true}
+        )
+      }
+        if(cookie.load("bonus3Activated") == "true"){
+          this.setState( {bonus3CurrentColor: "color",
+            bonusTotal: this.state.bonusTotal + this.state.bonus3,
+            bonus1Activated: true
+        })
+      }
+        if(cookie.load("bonus4ctivated") == "true"){
+          this.setState( {bonus4CurrentColor: "color",
+            bonusTotal: this.state.bonusTotal + this.state.bonus4,
+            bonus1Activated: true
+        })
+      }
+        if(cookie.load("bonus5Activated") == "true"){
+          this.setState( {bonus5CurrentColor: "color",
+            bonusTotal: this.state.bonusTotal + this.state.bonus5,
+            bonus1Activated: true
+        })
+      }
+        if(cookie.load("bonus6Activated") == "true"){
+          this.setState( {bonus6CurrentColor: "color",
+            bonusTotal: this.state.bonusTotal + this.state.bonus6,
+            bonus1Activated: true
+        })
+      }
+        if(cookie.load("bonus7Activated") == "true"){
+          this.setState( {bonus7CurrentColor: "color",
+            bonusTotal: this.state.bonusTotal + this.state.bonus7,
+            bonus1Activated: true
+        })
+      }
+        if(cookie.load("bonus8Activated") == "true"){
+          this.setState( {bonus8CurrentColor: "color",
+            bonusTotal: this.state.bonusTotal + this.state.bonus8,
+            bonus1Activated: true
+        })
+      }
+        if(cookie.load("bonus9Activated") == "true"){
+          this.setState( {bonus9CurrentColor: "color",
+            bonusTotal: this.state.bonusTotal + this.state.bonus9,
+            bonus1Activated: true
+        })
+      }
+        if(cookie.load("bonus10Activated") == "true"){
+          this.setState( {bonus10CurrentColor: "color",
+            bonusTotal: this.state.bonusTotal + this.state.bonus10,
+            bonus1Activated: true
+        })
+      }
+        if(cookie.load("bonus11Activated") == "true"){
+          this.setState( {bonus11CurrentColor: "color",
+            bonusTotal: this.state.bonusTotal + this.state.bonus11,
+            bonus1Activated: true
+        })
+      }
+        if(cookie.load("bonus12Activated") == "true"){
+          this.setState( {bonus12CurrentColor: "color",
+            bonusTotal: this.state.bonusTotal + this.state.bonus12,
+            bonus1Activated: true
+        })
+      }
+        if(cookie.load("bonus13Activated") == "true"){
+          this.setState( {bonus13CurrentColor: "color",
+            bonusTotal: this.state.bonusTotal + this.state.bonus13,
+            bonus1Activated: true
+        })
+      }
+        if(cookie.load("bonus14Activated") == "true"){
+          this.setState( {bonus14CurrentColor: "color",
+            bonusTotal: this.state.bonusTotal + this.state.bonus14,
+            bonus1Activated: true
+        })
+      }
+        if(cookie.load("bonus15Activated") == "true"){
+          this.setState( {bonus15CurrentColor: "color",
+            bonusTotal: this.state.bonusTotal + this.state.bonus15,
+            bonus1Activated: true
+        })
+      }
+        if(cookie.load("bonus16Activated") == "true"){
+          this.setState( {bonus16CurrentColor: "color",
+            bonusTotal: this.state.bonusTotal + this.state.bonus16,
+            bonus1Activated: true
+        })
+      }
+        if(cookie.load("bonus17Activated") == "true"){
+          this.setState( {bonus17CurrentColor: "color",
+            bonusTotal: this.state.bonusTotal + this.state.bonus17,
+            bonus1Activated: true
+        })
+      }
+        if(cookie.load("bonus18Activated") == "true"){
+          this.setState( {bonus18CurrentColor: "color",
+            bonusTotal: this.state.bonusTotal + this.state.bonus18,
+            bonus1Activated: true
+        })
 
+      }
+        }
  
 
 
