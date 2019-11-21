@@ -42,22 +42,22 @@ class MainCtrl extends Component {
                 moneyPerSecond: 0,
                 moneyPerSecondWithBonus: 0,
 
-                plotAmount: 1,
+                plotAmount: 20,
                 plotQuantity: 0,
 
-                house1Amount: 1,
+                house1Amount: 50,
                 house1Quantity: 0,
 
-                house2Amount: 1,
+                house2Amount: 100,
                 house2Quantity: 0,
 
-                condoAmount: 1,
+                condoAmount: 1000,
                 condoQuantity: 0,
 
-                buildingAmount: 1,
+                buildingAmount: 10000,
                 buildingQuantity: 0,
 
-                mansionAmount: 1,
+                mansionAmount: 60000,
                 mansionQuantity: 0,
                 
                 

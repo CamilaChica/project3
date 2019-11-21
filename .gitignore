@@ -25,3 +25,4 @@ yarn-debug.log*
 yarn-error.log*
 >>>>>>> 7668b7ea07c1413234d7f45d3ae8afbbeaac1c28
 node_modules
+build
